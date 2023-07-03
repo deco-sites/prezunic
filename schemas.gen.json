@@ -86,6 +86,7 @@
               "$live/sections/PageInclude.tsx",
               "$live/sections/Slot.tsx",
               "$live/sections/UseSlot.tsx",
+              "deco-sites/prezunic/sections/Banners/HorizontalSmallBanner.tsx",
               "deco-sites/prezunic/sections/Category/CategoryBanner.tsx",
               "deco-sites/prezunic/sections/Category/CategoryList.tsx",
               "deco-sites/prezunic/sections/Content/Benefits.tsx",
@@ -7597,6 +7598,24 @@
       ],
       "title": "deco-cx/live/sections/UseSlot.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2Jhbm5lcnMvSG9yaXpvbnRhbFNtYWxsQmFubmVyLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "alt": {
+          "type": "string",
+          "title": "Alt"
+        },
+        "src": {
+          "type": "string",
+          "title": "Src"
+        }
+      },
+      "required": [
+        "alt",
+        "src"
+      ],
+      "title": "deco-sites/prezunic/components/banners/HorizontalSmallBanner.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
       "type": "string",
       "format": "image-uri",
@@ -9721,14 +9740,6 @@
               "type": "string",
               "title": "Href"
             },
-            "title": {
-              "type": "string",
-              "title": "Title"
-            },
-            "subTitle": {
-              "type": "string",
-              "title": "Sub Title"
-            },
             "label": {
               "type": "string",
               "title": "Label"
@@ -9736,8 +9747,6 @@
           },
           "required": [
             "href",
-            "title",
-            "subTitle",
             "label"
           ],
           "title": "Action"
@@ -14346,6 +14355,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9CYW5uZXJzL0hvcml6b250YWxTbWFsbEJhbm5lci50c3g=": {
+      "title": "deco-sites/prezunic/sections/Banners/HorizontalSmallBanner.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2Jhbm5lcnMvSG9yaXpvbnRhbFNtYWxsQmFubmVyLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/prezunic/sections/Banners/HorizontalSmallBanner.tsx"
+          ],
+          "default": "deco-sites/prezunic/sections/Banners/HorizontalSmallBanner.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9DYXRlZ29yeS9DYXRlZ29yeUJhbm5lci50c3g=": {
       "title": "deco-sites/prezunic/sections/Category/CategoryBanner.tsx",
       "type": "object",
@@ -16080,6 +16110,9 @@
         },
         {
           "$ref": "#/definitions/JGxpdmUvc2VjdGlvbnMvVXNlU2xvdC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9CYW5uZXJzL0hvcml6b250YWxTbWFsbEJhbm5lci50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9DYXRlZ29yeS9DYXRlZ29yeUJhbm5lci50c3g="

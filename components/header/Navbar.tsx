@@ -38,7 +38,7 @@ function Navbar({ items, searchbar }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden  md:flex justify-center items-center border-b border-base-200 w-full pl-3 pr-3  bg-[#a4e84b] ">
+      <div class="hidden  md:flex justify-center items-center  w-full pl-3 pr-3  bg-[#a4e84b]  ">
         <div class="w-full max-w-[1270px] md:flex flex-row justify-between items-center h-[72px]">
           <div>
             <Category />
@@ -96,7 +96,7 @@ function Navbar({ items, searchbar }: {
           </div>
         </div>
       </div>
-      <div class="hidden  md:flex justify-center items-center w-full bg-white ">
+      <div class="hidden  md:flex justify-center items-center w-full bg-white border-b border-[#DEDEDE]">
         <div class="flex-auto flex justify-center h-10">
           {items.map((item) => <NavItem item={item} />)}
         </div>
