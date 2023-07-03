@@ -108,30 +108,29 @@ export interface OtherOptionalColors {
    */
   "neutral-content"?: string;
 
-    /**
+  /**
    * @format color
    * @description Will be a readable success of neutral if not specified
    */
-    "success-content"?: string;
+  "success-content"?: string;
 
-    /**
-     * @format color
-     * @description Will be a readable tone of warning if not specified
-     */
-    "warning-content"?: string;
-  
-    /**
-     * @format color
-     * @description Will be a readable tone of error if not specified
-     */
-    "error-content"?: string;
-  
-    /**
-     * @format color
-     * @description Will be a readable tone of info if not specified
-     */
-    "info-content"?: string;
-  
+  /**
+   * @format color
+   * @description Will be a readable tone of warning if not specified
+   */
+  "warning-content"?: string;
+
+  /**
+   * @format color
+   * @description Will be a readable tone of error if not specified
+   */
+  "error-content"?: string;
+
+  /**
+   * @format color
+   * @description Will be a readable tone of info if not specified
+   */
+  "info-content"?: string;
 }
 
 export interface SystemColors {
@@ -141,30 +140,29 @@ export interface SystemColors {
    */
   "neutral": string;
 
-    /**
+  /**
    * @format color
    * @default #EAFAF2
    */
-    "success": string;
+  "success": string;
 
-    /**
-     * @format color
-     * @default #FFF8E6
-     */
-    "warning": string;
-  
-    /**
-     * @format color
-     * @default #FFE9E5
-     */
-    "error": string;
-  
-    /**
-     * @format color
-     * @default #F0F5FF
-     */
-    "info": string;
-  
+  /**
+   * @format color
+   * @default #FFF8E6
+   */
+  "warning": string;
+
+  /**
+   * @format color
+   * @default #FFE9E5
+   */
+  "error": string;
+
+  /**
+   * @format color
+   * @default #F0F5FF
+   */
+  "info": string;
 }
 
 export interface Button {
@@ -188,7 +186,7 @@ export interface Button {
    * @default 0.95
    * @title Scale on click
    */
-  "--btn-focus-scale": "0.9" | "0.95" | "1" | "1.05" | "1.1" ;
+  "--btn-focus-scale": "0.9" | "0.95" | "1" | "1.05" | "1.1";
 }
 
 export interface Miscellaneous {
@@ -232,11 +230,11 @@ export interface Miscellaneous {
 
 export interface Font {
   /**
-   * @default 'Albert Sans'
+   * @default 'Montserrat'
    */
   fontFamily?: string;
   /**
-   * @default @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@400;500;700&display=swap');
+   * @default @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
    * \@format css
    */
   styleInnerHtml?: string;
@@ -251,15 +249,15 @@ export interface Props {
 }
 
 type Theme =
-  MainColors &
-  PrimaryColorOptional &
-  SecondaryColorOptional &
-  TertiaryColorOptional &
-  BaseColorOptional &
-  Button &
-  SystemColors &
-  OtherOptionalColors &
-  Miscellaneous;
+  & MainColors
+  & PrimaryColorOptional
+  & SecondaryColorOptional
+  & TertiaryColorOptional
+  & BaseColorOptional
+  & Button
+  & SystemColors
+  & OtherOptionalColors
+  & Miscellaneous;
 
 const darken = (color: string, percentage = 0.2) =>
   Color.string(color).darken(percentage);
@@ -405,7 +403,7 @@ function Section({
         type="text/css"
         id={`__DESIGN_SYSTEM_VARS-${id}`}
         dangerouslySetInnerHTML={{
-          __html: `:root {${variables}}`,
+          __html: `:root {${variables}} `,
         }}
       />
     </Head>
@@ -421,7 +419,10 @@ export function Preview(props: Props) {
           <div class="flex flex-col gap-2 max-w-[22rem]">
             <div class="text-4xl">Your site, beautiful.</div>
             <div>
-              Aesthetics create a visually pleasing and engaging environment, establish brand identity, improve readability, and evoke positive emotional responses, ultimately enhancing user engagement and satisfaction.
+              Aesthetics create a visually pleasing and engaging environment,
+              establish brand identity, improve readability, and evoke positive
+              emotional responses, ultimately enhancing user engagement and
+              satisfaction.
             </div>
           </div>
           <div class="grid grid-flow-row gap-6 justify-center">
@@ -439,34 +440,41 @@ export function Preview(props: Props) {
               <button class="btn">Base</button>{" "}
               <button class="btn btn-primary">Primary</button>{" "}
               <button class="btn btn-secondary">Secondary</button>{" "}
-              <button class="btn btn-accent">Tertiary</button>{" "}
+              <button class="btn btn-accent">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn btn-outline">Base</button>{" "}
               <button class="btn btn-primary btn-outline">Primary</button>{" "}
-              <button class="btn btn-secondary btn-outline">Secondary</button>{" "}
-              <button class="btn btn-accent btn-outline">Tertiary</button>{" "}
+              <button class="btn btn-secondary btn-outline">Secondary</button>
+              {" "}
+              <button class="btn btn-accent btn-outline">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="flex gap-2">
               <span class="badge">Base</span>{" "}
               <span class="badge badge-primary">Primary</span>{" "}
               <span class="badge badge-secondary">Secondary</span>{" "}
-              <span class="badge badge-accent">Tertiary</span>{" "}
+              <span class="badge badge-accent">Tertiary</span>
+              {" "}
             </div>{" "}
             <div class="flex gap-4">
               <div class="text-base">Content</div>
               <div class="text-base text-primary">Primary</div>
               <div class="text-base text-secondary">Secondary</div>
               <div class="text-base text-accent">Tertiary</div>
-            </div>{" "}
-          </div>{" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
         </div>{" "}
-
         <div class="grid md:grid-flow-col gap-10 p-6 lg:p-10 bg-base-content text-base-100 justify-center">
           <div class="flex flex-col gap-2 max-w-[22rem]">
             <div class="text-4xl">Your site, colorful.</div>
             <div>
-              Colors evoke emotions, guide user attention, enhance readability, and reinforce brand identity, resulting in a visually appealing and engaging user interface.
+              Colors evoke emotions, guide user attention, enhance readability,
+              and reinforce brand identity, resulting in a visually appealing
+              and engaging user interface.
             </div>
           </div>
           <div class="grid grid-flow-row gap-6 justify-center">
@@ -484,33 +492,40 @@ export function Preview(props: Props) {
               <button class="btn">Base</button>{" "}
               <button class="btn btn-primary">Primary</button>{" "}
               <button class="btn btn-secondary">Secondary</button>{" "}
-              <button class="btn btn-accent">Tertiary</button>{" "}
+              <button class="btn btn-accent">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn btn-primary btn-outline">Primary</button>{" "}
-              <button class="btn btn-secondary btn-outline">Secondary</button>{" "}
-              <button class="btn btn-accent btn-outline">Tertiary</button>{" "}
+              <button class="btn btn-secondary btn-outline">Secondary</button>
+              {" "}
+              <button class="btn btn-accent btn-outline">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="flex gap-2">
               <span class="badge">Base</span>{" "}
               <span class="badge badge-primary">Primary</span>{" "}
               <span class="badge badge-secondary">Secondary</span>{" "}
-              <span class="badge badge-accent">Tertiary</span>{" "}
+              <span class="badge badge-accent">Tertiary</span>
+              {" "}
             </div>{" "}
             <div class="flex gap-4">
               <div class="text-base">Content</div>
               <div class="text-base text-primary">Primary</div>
               <div class="text-base text-secondary">Secondary</div>
               <div class="text-base text-accent">Tertiary</div>
-            </div>{" "}
-          </div>{" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
         </div>{" "}
-
         <div class="grid md:grid-flow-col gap-10 p-6 lg:p-10 bg-primary text-primary-content justify-center">
           <div class="flex flex-col gap-2 max-w-[22rem]">
             <div class="text-4xl">Your site, consistent.</div>
             <div>
-              Consistency simplifies user navigation, reduces cognitive effort, reinforces brand identity, and ultimately leads to improved user satisfaction and engagement.
+              Consistency simplifies user navigation, reduces cognitive effort,
+              reinforces brand identity, and ultimately leads to improved user
+              satisfaction and engagement.
             </div>
           </div>
           <div class="grid grid-flow-row gap-6 justify-center">
@@ -527,31 +542,38 @@ export function Preview(props: Props) {
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn">Base</button>{" "}
               <button class="btn btn-secondary">Secondary</button>{" "}
-              <button class="btn btn-accent">Tertiary</button>{" "}
+              <button class="btn btn-accent">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn btn-outline">Base</button>{" "}
-              <button class="btn btn-secondary btn-outline">Secondary</button>{" "}
-              <button class="btn btn-accent btn-outline">Tertiary</button>{" "}
+              <button class="btn btn-secondary btn-outline">Secondary</button>
+              {" "}
+              <button class="btn btn-accent btn-outline">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="flex gap-2">
               <span class="badge">Base</span>{" "}
               <span class="badge badge-secondary">Secondary</span>{" "}
-              <span class="badge badge-accent">Tertiary</span>{" "}
+              <span class="badge badge-accent">Tertiary</span>
+              {" "}
             </div>{" "}
             <div class="flex gap-4">
               <div class="text-base">Content</div>
               <div class="text-base text-secondary">Secondary</div>
               <div class="text-base text-accent">Tertiary</div>
-            </div>{" "}
-          </div>{" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
         </div>{" "}
-
         <div class="grid md:grid-flow-col gap-10 p-6 lg:p-10 bg-secondary text-secondary-content justify-center">
           <div class="flex flex-col gap-2 max-w-[22rem]">
             <div class="text-4xl">Your site, dynamic.</div>
             <div>
-              Animations engage users, provide visual cues, enhance interactivity, and contribute to a dynamic and memorable browsing experience, ultimately improving user satisfaction.
+              Animations engage users, provide visual cues, enhance
+              interactivity, and contribute to a dynamic and memorable browsing
+              experience, ultimately improving user satisfaction.
             </div>
           </div>
           <div class="grid grid-flow-row gap-6 justify-center">
@@ -568,31 +590,38 @@ export function Preview(props: Props) {
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn">Base</button>{" "}
               <button class="btn btn-primary">Primary</button>{" "}
-              <button class="btn btn-accent">Tertiary</button>{" "}
+              <button class="btn btn-accent">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn btn-outline">Base</button>{" "}
               <button class="btn btn-primary btn-outline">Primary</button>{" "}
-              <button class="btn btn-accent btn-outline">Tertiary</button>{" "}
+              <button class="btn btn-accent btn-outline">Tertiary</button>
+              {" "}
             </div>{" "}
             <div class="flex gap-2">
               <span class="badge">Base</span>{" "}
               <span class="badge badge-primary">Primary</span>{" "}
-              <span class="badge badge-accent">Tertiary</span>{" "}
+              <span class="badge badge-accent">Tertiary</span>
+              {" "}
             </div>{" "}
             <div class="flex gap-4">
               <div class="text-base">Content</div>
               <div class="text-base text-primary">Primary</div>
               <div class="text-base text-accent">Tertiary</div>
-            </div>{" "}
-          </div>{" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
         </div>{" "}
-
         <div class="grid md:grid-flow-col gap-10 p-6 lg:p-10 bg-accent text-accent-content justify-center">
           <div class="flex flex-col gap-2 max-w-[22rem]">
             <div class="text-4xl">Your site, fast.</div>
             <div>
-              Speed performance affects user satisfaction, engagement, conversion rates, and search engine visibility. Faster-loading websites provide a seamless browsing experience, reduce bounce rates, and improve usability.
+              Speed performance affects user satisfaction, engagement,
+              conversion rates, and search engine visibility. Faster-loading
+              websites provide a seamless browsing experience, reduce bounce
+              rates, and improve usability.
             </div>
           </div>
           <div class="grid grid-flow-row gap-6 justify-center">
@@ -609,25 +638,31 @@ export function Preview(props: Props) {
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn">Base</button>{" "}
               <button class="btn btn-primary">Primary</button>{" "}
-              <button class="btn btn-secondary">Secondary</button>{" "}
+              <button class="btn btn-secondary">Secondary</button>
+              {" "}
             </div>{" "}
             <div class="grid md:grid-flow-col gap-3">
               <button class="btn btn-outline">Base</button>{" "}
               <button class="btn btn-primary btn-outline">Primary</button>{" "}
-              <button class="btn btn-secondary btn-outline">Secondary</button>{" "}
+              <button class="btn btn-secondary btn-outline">Secondary</button>
+              {" "}
             </div>{" "}
             <div class="flex gap-2">
               <span class="badge">Base</span>{" "}
               <span class="badge badge-primary">Primary</span>{" "}
-              <span class="badge badge-secondary">Secondary</span>{" "}
+              <span class="badge badge-secondary">Secondary</span>
+              {" "}
             </div>{" "}
             <div class="flex gap-4">
               <div class="text-base">Content</div>
               <div class="text-base text-primary">Primary</div>
               <div class="text-base text-secondary">Secondary</div>
-            </div>{" "}
-          </div>{" "}
-        </div>{" "}
+            </div>
+            {" "}
+          </div>
+          {" "}
+        </div>
+        {" "}
       </div>
     </>
   );

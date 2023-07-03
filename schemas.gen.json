@@ -92,6 +92,7 @@
               "deco-sites/prezunic/sections/Content/Faq.tsx",
               "deco-sites/prezunic/sections/Content/Logos.tsx",
               "deco-sites/prezunic/sections/Content/Testimonials.tsx",
+              "deco-sites/prezunic/sections/DesignSystem/DesignSystem.tsx",
               "deco-sites/prezunic/sections/Footer/Footer.tsx",
               "deco-sites/prezunic/sections/Header/Header.tsx",
               "deco-sites/prezunic/sections/Images/BannerGrid.tsx",
@@ -102,6 +103,7 @@
               "deco-sites/prezunic/sections/Links/Shortcuts.tsx",
               "deco-sites/prezunic/sections/Miscellaneous/CampaignTimer.tsx",
               "deco-sites/prezunic/sections/Miscellaneous/CookieConsent.tsx",
+              "deco-sites/prezunic/sections/NavbarHighlight/NavbarHighlight.tsx",
               "deco-sites/prezunic/sections/Newsletter/Newsletter.tsx",
               "deco-sites/prezunic/sections/Product/ProductDetails.tsx",
               "deco-sites/prezunic/sections/Product/ProductShelf.tsx",
@@ -3942,6 +3944,11 @@
         {
           "title": "VTEX Proxy Routes",
           "type": "object",
+          "allOf": [
+            {
+              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L3Byb3h5LnRz@Props"
+            }
+          ],
           "required": [
             "__resolveType"
           ],
@@ -6999,6 +7006,23 @@
       "required": [],
       "title": "deco-sites/std/packs/vtex/loaders/navbar.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L3Byb3h5LnRz@Props": {
+      "type": "object",
+      "properties": {
+        "extraPathsToProxy": {
+          "type": "array",
+          "items": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "title": "Extra Paths To Proxy"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/std/loaders/vtex/proxy.ts@Props"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL3VzZXIudHM=@User": {
       "type": "object",
       "properties": {
@@ -8438,6 +8462,339 @@
       },
       "required": [],
       "title": "deco-sites/prezunic/sections/Content/Testimonials.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Colors": {
+      "type": "object",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "format": "color",
+          "default": "#003232",
+          "title": "Primary"
+        },
+        "secondary": {
+          "type": "string",
+          "format": "color",
+          "default": "#8C3D3D",
+          "title": "Secondary"
+        },
+        "accent": {
+          "type": "string",
+          "format": "color",
+          "default": "#00FF7F",
+          "title": "Accent"
+        },
+        "neutral": {
+          "type": "string",
+          "format": "color",
+          "default": "#333333",
+          "title": "Neutral"
+        },
+        "base-100": {
+          "type": "string",
+          "format": "color",
+          "default": "#FFFFFF",
+          "title": "Base-100"
+        },
+        "success": {
+          "type": "string",
+          "format": "color",
+          "default": "#EAFAF2",
+          "title": "Success"
+        },
+        "warning": {
+          "type": "string",
+          "format": "color",
+          "default": "#FFF8E6",
+          "title": "Warning"
+        },
+        "error": {
+          "type": "string",
+          "format": "color",
+          "default": "#FFE9E5",
+          "title": "Error"
+        },
+        "info": {
+          "type": "string",
+          "format": "color",
+          "default": "#F0F5FF",
+          "title": "Info"
+        }
+      },
+      "required": [
+        "primary",
+        "secondary",
+        "accent",
+        "neutral",
+        "base-100",
+        "success",
+        "warning",
+        "error",
+        "info"
+      ],
+      "title": "Colors"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@OptionalColors": {
+      "type": "object",
+      "properties": {
+        "primary-focus": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of primary if not specified",
+          "title": "Primary-focus"
+        },
+        "primary-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of primary if not specified",
+          "title": "Primary-content"
+        },
+        "secondary-focus": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of secondary if not specified",
+          "title": "Secondary-focus"
+        },
+        "secondary-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of secondary if not specified",
+          "title": "Secondary-content"
+        },
+        "accent-focus": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of accent if not specified",
+          "title": "Accent-focus"
+        },
+        "accent-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of accent if not specified",
+          "title": "Accent-content"
+        },
+        "neutral-focus": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of neutral if not specified",
+          "title": "Neutral-focus"
+        },
+        "neutral-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of neutral if not specified",
+          "title": "Neutral-content"
+        },
+        "base-200": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of base-100 if not specified",
+          "title": "Base-200"
+        },
+        "base-300": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a darker tone of base-200 if not specified",
+          "title": "Base-300"
+        },
+        "base-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of base-100 if not specified",
+          "title": "Base-content"
+        },
+        "success-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable success of neutral if not specified",
+          "title": "Success-content"
+        },
+        "warning-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of warning if not specified",
+          "title": "Warning-content"
+        },
+        "error-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of error if not specified",
+          "title": "Error-content"
+        },
+        "info-content": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "color",
+          "description": "Will be a readable tone of info if not specified",
+          "title": "Info-content"
+        }
+      },
+      "required": [],
+      "title": "OptionalColors"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Miscellaneous": {
+      "type": "object",
+      "properties": {
+        "--rounded-box": {
+          "type": "string",
+          "default": "1rem",
+          "title": "Rounded box",
+          "description": "border radius rounded-box utility class, used in card and other large boxes"
+        },
+        "--rounded-btn": {
+          "type": "string",
+          "default": "0.5rem",
+          "title": "Rounded button",
+          "description": "border radius rounded-btn utility class, used in buttons and similar element"
+        },
+        "--rounded-badge": {
+          "type": "string",
+          "default": "1.9rem",
+          "title": "Rounded badge",
+          "description": "border radius rounded-badge utility class, used in badges and similar"
+        },
+        "--animation-btn": {
+          "type": "string",
+          "default": "0.25s",
+          "title": "Animation button",
+          "description": "duration of animation when you click on button"
+        },
+        "--animation-input": {
+          "type": "string",
+          "default": "0.2s",
+          "title": "Animation input",
+          "description": "duration of animation for inputs like checkbox, toggle, radio, etc"
+        },
+        "--btn-text-case": {
+          "type": "string",
+          "default": "uppercase",
+          "title": "Button text case",
+          "description": "set default text transform for buttons"
+        },
+        "--btn-focus-scale": {
+          "type": "string",
+          "default": "0.95",
+          "title": "Button focus scale",
+          "description": "scale transform of button when you focus on it"
+        },
+        "--border-btn": {
+          "type": "string",
+          "default": "1px",
+          "title": "Border button",
+          "description": "border width of buttons"
+        },
+        "--tab-border": {
+          "type": "string",
+          "default": "1px",
+          "title": "Tab border",
+          "description": "border width of tabs"
+        },
+        "--tab-radius": {
+          "type": "string",
+          "default": "0.5rem",
+          "title": "Tab radius",
+          "description": "border radius of tabs"
+        }
+      },
+      "required": [
+        "--rounded-box",
+        "--rounded-btn",
+        "--rounded-badge",
+        "--animation-btn",
+        "--animation-input",
+        "--btn-text-case",
+        "--btn-focus-scale",
+        "--border-btn",
+        "--tab-border",
+        "--tab-radius"
+      ],
+      "title": "Miscellaneous"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Font": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "default": "'Albert Sans'",
+          "title": "Font Family"
+        },
+        "styleInnerHtml": {
+          "type": "string",
+          "title": "Style Inner Html"
+        }
+      },
+      "required": [
+        "fontFamily",
+        "styleInnerHtml"
+      ],
+      "title": "Font"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "colors": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Colors",
+          "title": "Colors"
+        },
+        "optionalColors": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@OptionalColors",
+          "title": "Optional Colors"
+        },
+        "miscellaneous": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Miscellaneous",
+          "title": "Miscellaneous"
+        },
+        "fonts": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Font",
+          "title": "Fonts"
+        }
+      },
+      "required": [],
+      "title": "deco-sites/prezunic/sections/DesignSystem/DesignSystem.tsx@Props"
     },
     "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2Zvb3Rlci9Gb290ZXIudHN4@NewsletterForm": {
       "type": "object",
@@ -10305,6 +10662,44 @@
       "required": [],
       "title": "deco-sites/prezunic/components/ui/CookieConsent.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@NavLink": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "NavLink"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@NavLink[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@NavLink"
+      },
+      "title": "NavLink[]"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "navLinks": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@NavLink[]",
+          "title": "Nav Links"
+        }
+      },
+      "required": [
+        "navLinks"
+      ],
+      "title": "deco-sites/prezunic/components/navbarhighlight/NavbarHighlight.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9OZXdzbGV0dGVyL05ld3NsZXR0ZXIudHN4@Form": {
       "type": "object",
       "properties": {
@@ -11224,7 +11619,7 @@
             "string",
             "null"
           ],
-          "default": "'Albert Sans'",
+          "default": "'Montserrat'",
           "title": "Font Family"
         },
         "styleInnerHtml": {
@@ -11834,7 +12229,7 @@
       ],
       "title": "deco-cx/live/actions/workflows/cancel.ts@Props"
     },
-    "ZGVjby1jeC9kdXJhYmxlL2NvbnRleHQudHM=@Metadata&d53c654012b1a9c30560229e428269fa": {
+    "ZGVjby1jeC9kdXJhYmxlL2NvbnRleHQudHM=@84fc92f16c8c63842cf10a2dafbc96f9&Metadata": {
       "allOf": [
         {
           "type": "object",
@@ -11852,9 +12247,9 @@
           "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2NvbnRleHQudHM=@Metadata"
         }
       ],
-      "title": "Metadata&d53c654012b1a9c30560229e428269fa"
+      "title": "84fc92f16c8c63842cf10a2dafbc96f9&Metadata"
     },
-    "ZGVjby1jeC9kdXJhYmxlL2hhbmRsZXIudHM=@RunRequest+Arg+Metadata&d53c654012b1a9c30560229e428269fa": {
+    "ZGVjby1jeC9kdXJhYmxlL2hhbmRsZXIudHM=@RunRequest+Arg+84fc92f16c8c63842cf10a2dafbc96f9&Metadata": {
       "type": "object",
       "properties": {
         "results": {
@@ -11865,7 +12260,7 @@
           "title": "Execution Id"
         },
         "metadata": {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2NvbnRleHQudHM=@Metadata&d53c654012b1a9c30560229e428269fa",
+          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2NvbnRleHQudHM=@84fc92f16c8c63842cf10a2dafbc96f9&Metadata",
           "title": "Metadata"
         }
       },
@@ -11874,7 +12269,7 @@
         "executionId",
         "metadata"
       ],
-      "title": "deco-cx/durable/handler.ts@RunRequest+Arg+Metadata&d53c654012b1a9c30560229e428269fa"
+      "title": "deco-cx/durable/handler.ts@RunRequest+Arg+84fc92f16c8c63842cf10a2dafbc96f9&Metadata"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3NpZ25hbC50cw==@Props": {
       "type": "object",
@@ -13377,6 +13772,11 @@
     "ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L3Byb3h5LnRz": {
       "title": "VTEX Proxy Routes",
       "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvbG9hZGVycy92dGV4L3Byb3h5LnRz@Props"
+        }
+      ],
       "required": [
         "__resolveType"
       ],
@@ -14022,6 +14422,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==": {
+      "title": "deco-sites/prezunic/sections/DesignSystem/DesignSystem.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/prezunic/sections/DesignSystem/DesignSystem.tsx"
+          ],
+          "default": "deco-sites/prezunic/sections/DesignSystem/DesignSystem.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9Gb290ZXIvRm9vdGVyLnRzeA==": {
       "title": "deco-sites/prezunic/sections/Footer/Footer.tsx",
       "type": "object",
@@ -14229,6 +14650,27 @@
             "deco-sites/prezunic/sections/Miscellaneous/CookieConsent.tsx"
           ],
           "default": "deco-sites/prezunic/sections/Miscellaneous/CookieConsent.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9OYXZiYXJIaWdobGlnaHQvTmF2YmFySGlnaGxpZ2h0LnRzeA==": {
+      "title": "deco-sites/prezunic/sections/NavbarHighlight/NavbarHighlight.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL25hdmJhcmhpZ2hsaWdodC9OYXZiYXJIaWdobGlnaHQudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/prezunic/sections/NavbarHighlight/NavbarHighlight.tsx"
+          ],
+          "default": "deco-sites/prezunic/sections/NavbarHighlight/NavbarHighlight.tsx"
         }
       }
     },
@@ -14910,7 +15352,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2hhbmRsZXIudHM=@RunRequest+Arg+Metadata&d53c654012b1a9c30560229e428269fa"
+          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2hhbmRsZXIudHM=@RunRequest+Arg+84fc92f16c8c63842cf10a2dafbc96f9&Metadata"
         }
       ],
       "required": [
@@ -15608,6 +16050,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9Db250ZW50L1Rlc3RpbW9uaWFscy50c3g="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9EZXNpZ25TeXN0ZW0vRGVzaWduU3lzdGVtLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9Gb290ZXIvRm9vdGVyLnRzeA=="
         },
         {
@@ -15636,6 +16081,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9NaXNjZWxsYW5lb3VzL0Nvb2tpZUNvbnNlbnQudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9OYXZiYXJIaWdobGlnaHQvTmF2YmFySGlnaGxpZ2h0LnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9zZWN0aW9ucy9OZXdzbGV0dGVyL05ld3NsZXR0ZXIudHN4"

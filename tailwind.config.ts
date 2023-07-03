@@ -4,5 +4,13 @@ export default {
   plugins: [daisyui],
   daisyui: { themes: [], logs: false },
   content: ["./**/*.tsx"],
-  theme: { container: { center: true } },
+  theme: {
+    extend: {
+      fontFamily: {
+        title: ["Century Gothic", "Montserrat", "sans-serif"],
+        sans: ["Montserrat", "sans-serif"],
+        serif: ["inherit", "serif"],
+      },
+    },
+  },
 };
