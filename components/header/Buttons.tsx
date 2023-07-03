@@ -77,7 +77,7 @@ function CartButton() {
           </span>
         )}
         {!loading.value && (
-          <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+          <Icon id="ShoppingCartNew" width={23} height={23} strokeWidth={2} />
         )}
       </div>
     </Button>

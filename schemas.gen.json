@@ -8050,6 +8050,16 @@
                     "type": "string",
                     "const": "Zoom",
                     "default": "Zoom"
+                  },
+                  {
+                    "type": "string",
+                    "const": "Pedidos",
+                    "default": "Pedidos"
+                  },
+                  {
+                    "type": "string",
+                    "const": "ShoppingCartNew",
+                    "default": "ShoppingCartNew"
                   }
                 ],
                 "type": "string",
@@ -9408,6 +9418,31 @@
       },
       "title": "NavItem[]"
     },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavLink": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "NavLink"
+    },
+    "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavLink[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavLink"
+      },
+      "title": "NavLink[]"
+    },
     "ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@Props": {
       "type": "object",
       "properties": {
@@ -9435,10 +9470,15 @@
         "suggestions": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Suggestion|null",
           "title": "Enable Top Search terms"
+        },
+        "navLinks": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9wcmV6dW5pYy9jb21wb25lbnRzL2hlYWRlci9IZWFkZXIudHN4@NavLink[]",
+          "title": "Nav Links"
         }
       },
       "required": [
-        "alerts"
+        "alerts",
+        "navLinks"
       ],
       "title": "deco-sites/prezunic/components/header/Header.tsx@Props"
     },
@@ -10403,6 +10443,16 @@
               "type": "string",
               "const": "Zoom",
               "default": "Zoom"
+            },
+            {
+              "type": "string",
+              "const": "Pedidos",
+              "default": "Pedidos"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCartNew",
+              "default": "ShoppingCartNew"
             }
           ],
           "type": "string",
