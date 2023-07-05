@@ -92,7 +92,7 @@ export default function BannnerGrid({
   banners = [],
 }: Props) {
   return (
-    <section class="container w-full px-4 md:px-0 mx-auto">
+    <section class=" w-full px-4 md:px-0 mx-auto bg-[#f4f4f4] flex items-center py-4 justify-center ">
       {title &&
         (
           <div class="py-6 md:py-0 md:pb-[40px] flex items-center mt-6">
@@ -104,8 +104,8 @@ export default function BannnerGrid({
           </div>
         )}
       <div
-        class={`grid gap-4 md:gap-6 ${
-          MOBILE_COLUMNS[itemsPerLine?.mobile ?? 2]
+        class={`grid gap-4 md:gap-6 max-w-[1270px]  ${
+          MOBILE_COLUMNS[itemsPerLine?.mobile ?? 1]
         } ${DESKTOP_COLUMNS[itemsPerLine?.desktop ?? 4]}`}
       >
         {banners.map(({ href, srcMobile, srcDesktop, alt }) => (
@@ -113,19 +113,19 @@ export default function BannnerGrid({
             href={href}
             class={`overflow-hidden ${
               RADIUS_MOBILE[borderRadius.mobile ?? "none"]
-            } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]} `}
+            } ${RADIUS_DESKTOP[borderRadius.desktop ?? "none"]}`}
           >
             <Picture>
               <Source
                 media="(max-width: 767px)"
                 src={srcMobile}
-                width={100}
-                height={100}
+                width={600}
+                height={250}
               />
               <Source
                 media="(min-width: 768px)"
                 src={srcDesktop ? srcDesktop : srcMobile}
-                width={250}
+                width={600}
                 height={250}
               />
               <img
