@@ -96,33 +96,37 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
     </a>
   );
   return (
-    <div class="relative w-[230px] h-[366px] drop-shadow-md p-4 flex flex-col bg-white rounded-2xl items-center justify-between">
-      <div class="mt-8">
-        <a
-          href={url && relative(url)}
-          aria-label="view product"
-          class="contents"
-        >
-          <Image
-            src={front.url!}
-            alt={front.alternateName}
-            width={WIDTH}
-            height={HEIGHT}
-          />
-        </a>
+    <div class="relative w-[230px] h-[366px] drop-shadow-md p-4 pt-8 flex flex-col bg-white rounded-2xl items-center justify-between">
+      <a
+        href={url && relative(url)}
+        aria-label="view product"
+        class="contents"
+      >
+        <div class=" w-full flex justify-center">
+          <div>
+            <Image
+              src={front.url!}
+              alt={front.alternateName}
+              width={WIDTH}
+              height={HEIGHT}
+            />
 
-        <div class="absolute top-4 left-4">
-          <div class="rounded border border-[#0068AE] h-6 w-[90px] flex items-center justify-center ">
-            <span class="text-xs text-[#0068AE] font-medium">Oferta Clube</span>
-          </div>
-          <div class="rounded border border-[#D53F15] h-6 w-[62px] flex items-center justify-center mt-1">
-            <span class="text-xs text-[#D53F15] font-medium">34% off</span>
+            <div class="absolute top-4 left-4">
+              <div class="rounded border border-[#0068AE] h-6 w-[90px] flex items-center justify-center ">
+                <span class="text-xs text-[#0068AE] font-medium">
+                  Oferta Clube
+                </span>
+              </div>
+              <div class="rounded border border-[#D53F15] h-6 w-[62px] flex items-center justify-center mt-1">
+                <span class="text-xs text-[#D53F15] font-medium">34% off</span>
+              </div>
+            </div>
+            <div class="flex flex-start w-full mt-4">
+              <span>{name}</span>
+            </div>
           </div>
         </div>
-        <div class="flex flex-start w-full mt-4">
-          <span>{name}</span>
-        </div>
-      </div>
+      </a>
       <div class="flex flex-start w-full flex-col">
         <span class="text-xs line-through text-[#333333] ">
           {formatPrice(listPrice, offers!.priceCurrency!)}
