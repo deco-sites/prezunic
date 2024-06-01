@@ -122,13 +122,19 @@
           "href": "/ofertasprime",
           "alt": "Prime",
           "desktopWidth": 410,
-          "desktopHeight": 20
+          "desktopHeight": 20,
+          "mobileWidth": 410,
+          "mobileHeight": 250
         },
         {
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/8ca818f7-2a84-425d-b2e8-f1456f40ccf5",
           "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/2de2038d-778b-4f27-be94-a6994527c419",
           "alt": "Encartes",
-          "href": "/ofertas/encartes/"
+          "href": "/ofertas/encartes/",
+          "desktopWidth": 410,
+          "desktopHeight": 20,
+          "mobileWidth": 410,
+          "mobileHeight": 250
         },
         {
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ba131a14-550b-433b-88a1-37fd6a2f69f0",
