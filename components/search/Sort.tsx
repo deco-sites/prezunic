@@ -6,7 +6,10 @@ import { clx } from "../../sdk/clx.ts";
 const SORT_QUERY_PARAM = "sort";
 const PAGE_QUERY_PARAM = "page";
 
-export type Props = Pick<ProductListingPage, "sortOptions"> & { url: string; noBorder?: boolean };
+export type Props = Pick<ProductListingPage, "sortOptions"> & {
+  url: string;
+  noBorder?: boolean;
+};
 
 const getUrl = (href: string, value: string) => {
   const url = new URL(href);
@@ -53,7 +56,10 @@ function Sort({ sortOptions, url, noBorder }: Props) {
       <select
         id="sort"
         name="sort"
-        class={clx(noBorder ? "": "select-bordered", "select w-full max-w-sm rounded-lg text-sm")}
+        class={clx(
+          noBorder ? "" : "select-bordered",
+          "select w-full max-w-sm rounded-lg text-sm",
+        )}
       >
         {options.map(({ value, label }) => (
           <option

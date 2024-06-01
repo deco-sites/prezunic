@@ -33,12 +33,14 @@ export default function ProductDetails({ page }: Props) {
         <div class="sm:col-span-2">
           <ProductInfo page={page} />
         </div>
-        {page.product.description && <div class="col-span-5">
-          <div
-            class="ml-2 mt-2"
-            dangerouslySetInnerHTML={{ __html: page.product.description }}
-          />
-        </div>}
+        {page.product.description && (
+          <div class="col-span-5">
+            <div
+              class="ml-2 mt-2"
+              dangerouslySetInnerHTML={{ __html: page.product.description }}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

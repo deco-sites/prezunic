@@ -14,7 +14,7 @@ export default function Form({ items }: Props) {
     <div>
       <div class="flex flex-row justify-between items-center gap-2 mb-2">
         <div class="flex flex-row items-center gap-1">
-          <Icon id="truck" size={32} class="text-primary h-6"/>
+          <Icon id="truck" size={32} class="text-primary h-6" />
           <span class="text-xs">
             Valor e prazo de entrega
           </span>
@@ -38,7 +38,10 @@ export default function Form({ items }: Props) {
             maxLength={8}
             size={8}
           />
-          <button type="submit" class="btn join-item no-animation bg-primary text-white">
+          <button
+            type="submit"
+            class="btn join-item no-animation bg-primary text-white"
+          >
             <span class="[.htmx-request_&]:hidden inline">BUSCAR</span>
             <span class="[.htmx-request_&]:inline hidden loading loading-spinner loading-xs" />
           </button>

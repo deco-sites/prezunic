@@ -226,7 +226,7 @@ function Result(props: SectionProps<typeof loader>) {
 
   const id = useId();
 
-  console.log(pageInfo)
+  console.log(pageInfo);
 
   return (
     <div class="bg-white">
@@ -249,9 +249,12 @@ function Result(props: SectionProps<typeof loader>) {
 
                 <div class="self-start">
                   <div class="hidden sm:flex justify-between items-center">
-                    {pageInfo?.records && pageInfo?.recordPerPage && <p class="text-sm font-bold">
-                      Página {zeroIndexedOffsetPage + 1} de {Math.ceil(pageInfo?.records / pageInfo?.recordPerPage)}
-                    </p>}
+                    {pageInfo?.records && pageInfo?.recordPerPage && (
+                      <p class="text-sm font-bold">
+                        Página {zeroIndexedOffsetPage + 1} de{" "}
+                        {Math.ceil(pageInfo?.records / pageInfo?.recordPerPage)}
+                      </p>
+                    )}
                     <div class="flex justify-between items-center gap-2">
                       <p>Ordenar por</p>
                       {sortOptions.length > 0 && (

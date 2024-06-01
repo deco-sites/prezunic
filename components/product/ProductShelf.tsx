@@ -80,7 +80,12 @@ function ProductShelf({
         {layout?.showArrows && (
           <div class="flex">
             <Slider.PrevButton class="w-12 h-12 flex justify-center items-center">
-            <Icon size={24} id="ChevronRight" strokeWidth={3} class="rotate-180"/>
+              <Icon
+                size={24}
+                id="ChevronRight"
+                strokeWidth={3}
+                class="rotate-180"
+              />
             </Slider.PrevButton>
             <Slider.NextButton class="w-12 h-12 flex justify-center items-center">
               <Icon size={24} id="ChevronRight" strokeWidth={3} />

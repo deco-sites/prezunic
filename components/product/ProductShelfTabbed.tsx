@@ -86,11 +86,9 @@ function TabbedProductShelf({
       {!products?.length
         ? <div class="flex justify-center items-center">No Products found</div>
         : (
-          <div
-            class="container grid grid-cols-[20%_1fr] gap-4"
-          > 
+          <div class="container grid grid-cols-[20%_1fr] gap-4">
             <div>
-             {image && <Image src={image} width={240} height={330}/>}
+              {image && <Image src={image} width={240} height={330} />}
             </div>
             <div
               id={id}
@@ -115,7 +113,12 @@ function TabbedProductShelf({
               <>
                 <div class="hidden relative z-10 col-start-1 row-start-3">
                   <Slider.PrevButton class="btn btn-circle btn-outline absolute right-1/2 bg-base-100">
-                    <Icon size={24} id="ChevronRight" strokeWidth={3} class="rotate-180"/>
+                    <Icon
+                      size={24}
+                      id="ChevronRight"
+                      strokeWidth={3}
+                      class="rotate-180"
+                    />
                   </Slider.PrevButton>
                 </div>
                 <div class="hidden relative z-10 col-start-3 row-start-3">
