@@ -52,5 +52,11 @@
   },
   "__resolveType": "site/sections/Theme/Theme.tsx",
   "mode": "dark",
-  "colorScheme": "any"
+  "colorScheme": "any",
+  "complementaryColors": {
+    "base-200": "#888888",
+    "base-300": "#333333",
+    "neutral-content": "#f4f4f4",
+    "base-content": "#666666"
+  }
 }

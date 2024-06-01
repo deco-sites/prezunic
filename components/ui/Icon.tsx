@@ -46,7 +46,10 @@ export type AvailableIcons =
   | "AlertSuccess"
   | "AlertWarning"
   | "AlertError"
-  | "share";
+  | "share"
+  | "cart"
+  | "myaccount"
+  | "pin";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

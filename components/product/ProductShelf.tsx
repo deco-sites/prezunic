@@ -74,7 +74,6 @@ function ProductShelf({
       <Header
         title={title || ""}
         description={description || ""}
-        fontSize={layout?.headerfontSize || "Large"}
         alignment={layout?.headerAlignment || "center"}
       />
 
@@ -87,7 +86,7 @@ function ProductShelf({
         )}
         {...viewItemListEvent}
       >
-        <Slider class="carousel carousel-center gap-6 sm:carousel-end row-start-2 row-end-5">
+        <Slider class="carousel carousel-center sm:carousel-end row-start-2 row-end-5">
           {products?.map((product, index) => (
             <Slider.Item
               index={index}

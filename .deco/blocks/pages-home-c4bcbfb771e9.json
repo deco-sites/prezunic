@@ -13,82 +13,46 @@
       "arrows": true,
       "images": [
         {
-          "alt": "Feminino",
+          "alt": "Cencopay",
           "action": {
-            "href": "/feminino",
             "label": "Explore collection",
             "title": "VTEX Store",
             "subTitle": "Visit our site and start building now:"
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/465f9de1-c647-4b56-ae9c-4769162ad542",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/3ca7b6ce-1f1e-4412-82da-f2343f53e249",
+          "link": "/ofertas-com-cashback-cencopay"
         },
         {
-          "alt": "Masculino",
+          "alt": "Spaten",
           "action": {
             "href": "/masculino",
             "label": "Explore collection",
             "title": "VTEX Store",
             "subTitle": "Visit our site and start building now:"
           },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/a34a5c47-e0a9-4c51-85dd-fe96c81f9ed1",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/cdc81cb4-25cd-4490-9638-c0e13e9b4cdd",
+          "link": "/1049/?map=productClusterIds"
         },
         {
-          "alt": "Vestidos",
-          "action": {
-            "href": "/feminino/roupas/vestidos",
-            "label": "Explore collection",
-            "title": "VTEX Store",
-            "subTitle": "Visit our site and start building now:"
-          },
-          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/c007e481-b1c6-4122-9761-5c3e554512c1",
-          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2291/d057fc10-5616-4f12-8d4c-201bb47a81f5"
+          "alt": "Corona",
+          "mobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/e50051e1-948c-43fe-ad1b-0c8a97829253",
+          "desktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/07a38b33-6c77-44bc-80df-92a4dacd5c59",
+          "link": "/1048/?map=productClusterIds"
         }
       ],
       "preload": true
     },
     {
-      "__resolveType": "site/sections/Miscellaneous/Slide.tsx",
-      "content": [
-        {
-          "label": "HOT SALE",
-          "repeat": 30
-        }
-      ]
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/CampaignTimer.tsx",
-      "link": {
-        "href": "https://github.com/deco-cx",
-        "text": "Visit our GitHub"
-      },
-      "text": "<p>Design, develop and deliver complete experiences</p>",
-      "labels": {
-        "days": "days",
-        "hours": "hours",
-        "expired": " Expired!",
-        "minutes": "minutes",
-        "seconds": "seconds"
-      },
-      "layout": {
-        "textPosition": "After counter"
-      },
-      "expiresAt": "2024-03-15T17:23:00.000Z"
-    },
-    {
-      "__resolveType": "site/sections/Miscellaneous/Slide.tsx",
-      "content": [
-        {
-          "label": "HOT SALE",
-          "repeat": 15
-        }
-      ]
-    },
-    {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
-        "showArrows": true
+        "showArrows": true,
+        "numberOfSliders": {
+          "desktop": 5,
+          "mobile": 2
+        },
+        "headerAlignment": "left"
       },
       "products": {
         "props": {
@@ -104,53 +68,72 @@
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
-        "showArrows": true
+        "showArrows": true,
+        "numberOfSliders": {
+          "desktop": 5,
+          "mobile": 2
+        },
+        "headerAlignment": "left"
       },
       "products": {
-        "__resolveType": "vtex/loaders/legacy/productList.ts",
         "props": {
           "sort": "OrderByBestDiscountDESC",
-          "collection": "1060",
-          "count": 14
+          "count": 14,
+          "collection": "1060"
         },
-        "crossSelling": "similars"
+        "crossSelling": "similars",
+        "__resolveType": "vtex/loaders/legacy/productList.ts"
       },
       "title": "Ofertas prime"
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
-        "showArrows": true
+        "showArrows": true,
+        "numberOfSliders": {
+          "desktop": 5,
+          "mobile": 2
+        },
+        "headerAlignment": "left"
       },
       "products": {
-        "__resolveType": "vtex/loaders/legacy/productList.ts",
         "props": {
           "sort": "",
-          "collection": "1045",
-          "count": 10
+          "count": 10,
+          "collection": "1045"
         },
-        "crossSelling": "similars"
+        "crossSelling": "similars",
+        "__resolveType": "vtex/loaders/legacy/productList.ts"
       },
       "title": "Especial Maturata"
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
-        "showArrows": true
+        "showArrows": true,
+        "numberOfSliders": {
+          "desktop": 5,
+          "mobile": 2
+        },
+        "headerAlignment": "left"
       },
       "products": {
-        "__resolveType": "vtex/loaders/legacy/productList.ts",
         "props": {
           "sort": "OrderByBestDiscountDESC",
           "count": 9,
           "collection": "996"
         },
-        "crossSelling": "similars"
+        "crossSelling": "similars",
+        "__resolveType": "vtex/loaders/legacy/productList.ts"
       },
       "title": "Produtos com cashback"
     },
     {
       "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
+      "layout": {
+        "headerAlignment": "center",
+        "headerfontSize": "Large"
+      },
       "title": "Melhor de cada departamento",
       "tabs": [
         {
@@ -198,11 +181,7 @@
           },
           "title": "Suinos"
         }
-      ],
-      "layout": {
-        "headerfontSize": "Large",
-        "headerAlignment": "center"
-      }
+      ]
     },
     {
       "__resolveType": "Footer - 04"

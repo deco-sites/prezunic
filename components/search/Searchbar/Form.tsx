@@ -78,30 +78,16 @@ export default function Searchbar(
   const slot = useId();
 
   return (
-    <div
-      class="w-full grid gap-8 px-4 py-6"
-      style={{ gridTemplateRows: "min-content auto" }}
-    >
-      <form id={SEARCHBAR_INPUT_FORM_ID} action={ACTION} class="join">
-        <button
-          type="submit"
-          class="btn join-item btn-square no-animation"
-          aria-label="Search"
-          for={SEARCHBAR_INPUT_FORM_ID}
-          tabIndex={-1}
-        >
-          <span class="loading loading-spinner loading-xs hidden [.htmx-request_&]:inline" />
-          <Icon
-            class="inline [.htmx-request_&]:hidden"
-            id="MagnifyingGlass"
-            size={24}
-            strokeWidth={0.01}
-          />
-        </button>
+    <div class="w-full gap-8">
+      <form
+        id={SEARCHBAR_INPUT_FORM_ID}
+        action={ACTION}
+        class="flex pl-4 pr-2 justify-between join rounded-full border-[1px] border-base-200 w-[480px] h-[42px] relative"
+      >
         <input
           autoFocus
           tabIndex={0}
-          class="input input-bordered join-item flex-grow"
+          class="w-full text-xs"
           name={NAME}
           placeholder={placeholder}
           autocomplete="off"
@@ -113,18 +99,24 @@ export default function Searchbar(
           hx-indicator={`#${SEARCHBAR_INPUT_FORM_ID}`}
           hx-swap="innerHTML"
         />
-        <label
-          type="button"
-          class="join-item btn btn-ghost btn-square hidden sm:inline-flex"
-          for={SEARCHBAR_POPUP_ID}
-          aria-label="Toggle searchbar"
+        <button
+          type="submit"
+          class=""
+          aria-label="Search"
+          for={SEARCHBAR_INPUT_FORM_ID}
+          tabIndex={-1}
         >
-          <Icon id="XMark" size={24} strokeWidth={2} />
-        </label>
+          <Icon
+            class="inline text-primary"
+            id="MagnifyingGlass"
+            size={24}
+            strokeWidth={0.01}
+          />
+        </button>
       </form>
 
       {/* Suggestions slot */}
-      <div id={slot} />
+      <div id={slot} class="absolute" />
 
       {/* Send search events as the user types */}
       <script

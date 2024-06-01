@@ -54,18 +54,22 @@ function Suggestions(
 
   return (
     <div
-      class={clx(`overflow-y-scroll`, !hasProducts && !hasTerms && "hidden")}
+      class={clx(
+        `overflow-y-scroll`,
+        !hasProducts && !hasTerms && "hidden",
+        "bg-white p-5 max-w-[520px]",
+      )}
     >
-      <div class="gap-4 grid grid-cols-1 sm:grid-rows-1 sm:grid-cols-[150px_1fr]">
-        <div class="flex flex-col gap-6">
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
           <span
-            class="font-medium text-xl"
+            class="text-sm"
             role="heading"
             aria-level={3}
           >
             Sugestões
           </span>
-          <ul class="flex flex-col gap-6">
+          <ul class="flex flex-col gap-1">
             {searches.map(({ term }) => (
               <li>
                 {/* TODO @gimenes: use name and action from searchbar form */}
@@ -73,41 +77,25 @@ function Suggestions(
                   href={`${ACTION}?${NAME}=${term}`}
                   class="flex gap-4 items-center"
                 >
-                  <span>
-                    <Icon
-                      id="MagnifyingGlass"
-                      size={24}
-                      strokeWidth={0.01}
-                    />
-                  </span>
-                  <span dangerouslySetInnerHTML={{ __html: term }} />
+                  <span
+                    class="text-sm"
+                    dangerouslySetInnerHTML={{ __html: term }}
+                  />
                 </a>
               </li>
             ))}
           </ul>
         </div>
         <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-          <span
-            class="font-medium text-xl"
-            role="heading"
-            aria-level={3}
-          >
-            Produtos sugeridos
-          </span>
-          <Slider class="carousel">
+          <div class="flex flex-col gap-2">
             {products.map((product, index) => (
-              <Slider.Item
+              <ProductCard
+                product={product}
                 index={index}
-                class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-              >
-                <ProductCard
-                  product={product}
-                  index={index}
-                  itemListName="Suggeestions"
-                />
-              </Slider.Item>
+                itemListName="Suggestions"
+              />
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
     </div>
