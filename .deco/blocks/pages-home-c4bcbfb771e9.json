@@ -62,13 +62,21 @@
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/00d93a31-ac0d-468a-846a-8d2992f70770",
           "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/caf71581-b7dd-4505-afc8-579af91d6083",
           "href": "/ofertas/ofertas-do-dia/",
-          "alt": "Ofertas"
+          "alt": "Ofertas",
+          "desktopWidth": 600,
+          "desktopHeight": 250,
+          "mobileWidth": 400,
+          "mobileHeight": 100
         },
         {
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/95e706b5-b8e4-47c5-988c-eea048aefd10",
           "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ea842ce5-250e-432f-9cd7-c9f5ce81c2af",
           "alt": "Dicas",
-          "href": "/institucional/novo-prezunic-vila-isabel/"
+          "href": "/institucional/novo-prezunic-vila-isabel/",
+          "desktopWidth": 600,
+          "desktopHeight": 250,
+          "mobileWidth": 400,
+          "mobileHeight": 100
         }
       ],
       "layout": {
@@ -112,7 +120,9 @@
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/85cdca87-e924-4032-af94-3f94e1377a72",
           "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/527d7776-d56a-45e8-82f7-a4213b306126",
           "href": "/ofertasprime",
-          "alt": "Prime"
+          "alt": "Prime",
+          "desktopWidth": 410,
+          "desktopHeight": 20
         },
         {
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/8ca818f7-2a84-425d-b2e8-f1456f40ccf5",

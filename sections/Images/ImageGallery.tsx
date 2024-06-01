@@ -8,7 +8,11 @@ import { clx } from "../../sdk/clx.ts";
  */
 export interface Banner {
   srcMobile?: ImageWidget;
+  mobileWidth?: number;
+  mobileHeight?: number;
   srcDesktop?: ImageWidget;
+  desktopWidth?: number;
+  desktopHeight?: number;
   /**
    * @description Image alt text
    */
@@ -124,7 +128,16 @@ function Banner(
     };
   },
 ) {
-  const { borderRadius, srcMobile, srcDesktop, alt } = props;
+  const {
+    borderRadius,
+    srcMobile,
+    srcDesktop,
+    alt,
+    mobileHeight,
+    mobileWidth,
+    desktopHeight,
+    desktopWidth,
+  } = props;
   const radiusDesktop = RADIUS.desktop[borderRadius?.desktop ?? "none"];
   const radiusMobile = RADIUS.mobile[borderRadius?.desktop ?? "none"];
 
@@ -140,16 +153,16 @@ function Banner(
       <Picture>
         {srcMobile && (
           <Source
-            width={190}
-            height={190}
+            width={mobileWidth || 190}
+            height={mobileHeight || 190}
             media="(max-width: 767px)"
             src={srcMobile}
           />
         )}
         {srcDesktop && (
           <Source
-            width={640}
-            height={420}
+            width={desktopWidth || 640}
+            height={desktopHeight || 420}
             media="(min-width: 768px)"
             src={srcDesktop}
           />
