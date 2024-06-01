@@ -17,7 +17,12 @@ function Bag() {
           "after:hidden after:indicator-item after:badge after:badge-secondary after:badge-sm after:content-[attr(data-minicart-items-count)] after:font-thin",
         )}
       >
-        <Icon id="ShoppingCart" size={24} strokeWidth={2} />
+        <Icon
+          id="cart"
+          size={26}
+          strokeWidth={2}
+          class="text-primary scale-90"
+        />
       </span>
     </label>
   );

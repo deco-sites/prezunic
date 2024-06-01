@@ -9,6 +9,10 @@
     font-family: var(--font-family);
   }
 
+  body {
+    @apply bg-neutral-content
+  }
+
   mark {
     @apply bg-accent text-accent-content;
   }
@@ -25,6 +29,11 @@
   body:has(.modal-toggle:checked) {
     overflow: hidden;
     height: 100vh;
+  }
+
+  .container{
+    max-width: 1270px;
+    margin: 0 auto;
   }
 }
 

@@ -1,13 +1,14 @@
 {
   "seo": {
     "type": "website",
-    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/2177/a5d890ba-e5b8-471e-8b77-7412c1d4fa56",
-    "title": "Storefront",
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/5da6c4be-55fc-4e1d-bd9a-86d1df531fc5",
+    "title": "Prezunic Supermercado Online: Promoções Imperdíveis",
     "jsonLDs": [],
     "noIndexing": false,
-    "description": "Improve your page performance with deco.cx ",
-    "titleTemplate": "%s | deco.cx",
-    "descriptionTemplate": "%s | Deco.cx"
+    "description": "Aproveite as ofertas",
+    "titleTemplate": "%s | Prezunic",
+    "descriptionTemplate": "%s | Prezunic",
+    "favicon": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/005e40fb-0f49-4240-ae27-a37b4841f3c7"
   },
   "theme": {
     "__resolveType": "Fashion theme"
