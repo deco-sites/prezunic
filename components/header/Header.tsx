@@ -127,7 +127,7 @@ function Desktop(
         aside={
           <div
             data-aside
-            class="absolute top-[110px] h-full w-full"
+            class="absolute top-[150px] h-full w-full"
           >
             <div
               class="h-full flex items-center justify-center"

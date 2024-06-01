@@ -1,6 +1,5 @@
 import { ProductDetailsPage } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
-import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
 import { formatPrice } from "../../sdk/format.ts";
 import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
@@ -59,31 +58,31 @@ function ProductInfo({ page }: Props) {
     },
   });
 
+  console.log(product)
+
   return (
     <div {...viewItemEvent} class="flex flex-col px-4" id={id}>
-      <Breadcrumb itemListElement={breadcrumb.itemListElement} />
       {/* Code and name */}
       <div class="mt-4 sm:mt-8">
         <div>
-          {gtin && <span class="text-sm text-base-300">Cod. {gtin}</span>}
+          {gtin && <span class="text-xs text-base-300">{gtin}</span>}
         </div>
         <h1>
-          <span class="font-medium text-xl capitalize">{title}</span>
+          <span class="text-base-300 text-2xl capitalize">{title}</span>
         </h1>
       </div>
       {/* Prices */}
       <div class="mt-4">
-        <div class="flex flex-row gap-2 items-center">
+        <div class="flex flex-col gap-2">
           {(listPrice ?? 0) > price && (
-            <span class="line-through text-base-300 text-xs">
+            <span class="line-through text-base-300 text-base">
               {formatPrice(listPrice, offers?.priceCurrency)}
             </span>
           )}
-          <span class="font-medium text-xl text-secondary">
+          <span class="font-bold text-2xl text-primary">
             {formatPrice(price, offers?.priceCurrency)}
           </span>
         </div>
-        <span class="text-sm text-base-300">{installments}</span>
       </div>
       {/* Sku Selector */}
       <div class="mt-4 sm:mt-6">
@@ -103,14 +102,6 @@ function ProductInfo({ page }: Props) {
                   class="btn-primary"
                 />
               )}
-
-              {/* todo @gimenes: add wishlist back */}
-              {/* @ts-expect-error todo @gimenes */}
-              <WishlistButton
-                isUserLoggedIn={true}
-                productID={productID}
-                productGroupID={productGroupID}
-              />
             </>
           )
           : <OutOfStock productID={productID} />}
@@ -126,20 +117,6 @@ function ProductInfo({ page }: Props) {
             }]}
           />
         )}
-      </div>
-      {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div
-                class="ml-2 mt-2"
-                dangerouslySetInnerHTML={{ __html: description }}
-              />
-            </details>
-          )}
-        </span>
       </div>
     </div>
   );

@@ -187,57 +187,80 @@
       }
     },
     {
-      "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
-      "layout": {
-        "headerAlignment": "left",
-        "headerfontSize": "Large"
-      },
-      "title": "Melhor de cada departamento 🙌",
-      "tabs": [
+      "__resolveType": "website/flags/multivariate/section.ts",
+      "variants": [
         {
-          "title": "Aves",
-          "products": {
-            "props": {
-              "sort": "",
-              "count": 9,
-              "query": "vestido",
-              "collection": "619"
+          "value": {
+            "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
+            "layout": {
+              "headerAlignment": "left",
+              "headerfontSize": "Large"
             },
-            "__resolveType": "vtex/loaders/legacy/productList.ts"
+            "title": "Melhor de cada departamento 🙌",
+            "tabs": [
+              {
+                "title": "Aves",
+                "products": {
+                  "props": {
+                    "sort": "",
+                    "count": 9,
+                    "query": "vestido",
+                    "collection": "619"
+                  },
+                  "__resolveType": "vtex/loaders/legacy/productList.ts"
+                },
+                "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/e1791620-8e61-47b5-b2e0-4ec4420cb1bb"
+              },
+              {
+                "title": "Bovinos",
+                "products": {
+                  "props": {
+                    "sort": "",
+                    "count": 9,
+                    "collection": "621"
+                  },
+                  "__resolveType": "vtex/loaders/legacy/productList.ts"
+                },
+                "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ed56c180-0e91-430c-b6dc-d157e2863e62"
+              },
+              {
+                "products": {
+                  "__resolveType": "vtex/loaders/legacy/productList.ts",
+                  "props": {
+                    "sort": "",
+                    "collection": "141",
+                    "count": 9
+                  }
+                },
+                "title": "Churrasco",
+                "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/a14e9e7a-6587-4b2d-9834-7a201fbe9228"
+              },
+              {
+                "products": {
+                  "__resolveType": "vtex/loaders/legacy/productList.ts",
+                  "props": {
+                    "sort": "OrderByPriceDESC",
+                    "collection": "620",
+                    "count": 9
+                  }
+                },
+                "title": "Suinos",
+                "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/3fdb0bfa-f318-4f1c-8efc-16eefc6cb1e0"
+              }
+            ]
+          },
+          "rule": {
+            "__resolveType": "Desktop"
           }
         },
         {
-          "title": "Bovinos",
-          "products": {
-            "props": {
-              "sort": "",
-              "count": 9,
-              "collection": "621"
-            },
-            "__resolveType": "vtex/loaders/legacy/productList.ts"
+          "value": {
+            "__resolveType": "site/sections/Content/RichText.tsx",
+            "text": "<p>&nbsp;</p>"
+          },
+          "rule": {
+            "__resolveType": "website/matchers/always.ts"
           }
-        },
-        {
-          "products": {
-            "__resolveType": "vtex/loaders/legacy/productList.ts",
-            "props": {
-              "sort": "",
-              "collection": "141",
-              "count": 9
-            }
-          },
-          "title": "Churrasco"
-        },
-        {
-          "products": {
-            "__resolveType": "vtex/loaders/legacy/productList.ts",
-            "props": {
-              "sort": "OrderByPriceDESC",
-              "collection": "620",
-              "count": 9
-            }
-          },
-          "title": "Suinos"
         }
       ]
     },

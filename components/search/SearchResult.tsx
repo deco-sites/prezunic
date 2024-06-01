@@ -11,6 +11,7 @@ import { useId } from "../../sdk/useId.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import SearchControls from "./Controls.tsx";
+import Sort from "./Sort.tsx";
 
 export interface Layout {
   /**
@@ -225,13 +226,15 @@ function Result(props: SectionProps<typeof loader>) {
 
   const id = useId();
 
+  console.log(pageInfo)
+
   return (
     <div class="bg-white">
       <div id={id} {...viewItemListEvent}>
         {partial
           ? <PageResult {...props} />
           : (
-            <div class="container px-4 sm:px-0 py-4 sm:py-10 flex flex-col gap-2 items-center justify-center">
+            <div class="container px-2 sm:px-0 sm:py-10 flex flex-col gap-2 items-center justify-center">
               <SearchControls
                 url={url}
                 sortOptions={sortOptions}
@@ -239,12 +242,24 @@ function Result(props: SectionProps<typeof loader>) {
                 breadcrumb={breadcrumb}
               />
 
-              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr]">
-                <aside class="hidden sm:block self-start">
+              <div class="grid place-items-center grid-cols-1 sm:grid-cols-[250px_1fr] gap-6">
+                <aside class="w-full hidden sm:block self-start">
                   <Filters filters={filters} />
                 </aside>
 
                 <div class="self-start">
+                  <div class="hidden sm:flex justify-between items-center">
+                    {pageInfo?.records && pageInfo?.recordPerPage && <p class="text-sm font-bold">
+                      Página {zeroIndexedOffsetPage + 1} de {Math.ceil(pageInfo?.records / pageInfo?.recordPerPage)}
+                    </p>}
+                    <div class="flex justify-between items-center gap-2">
+                      <p>Ordenar por</p>
+                      {sortOptions.length > 0 && (
+                        <Sort sortOptions={sortOptions} url={url} />
+                      )}
+                    </div>
+                  </div>
+
                   <PageResult {...props} />
                 </div>
               </div>

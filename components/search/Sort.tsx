@@ -1,11 +1,12 @@
 import { ProductListingPage } from "apps/commerce/types.ts";
 import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 import { JSX } from "preact";
+import { clx } from "../../sdk/clx.ts";
 
 const SORT_QUERY_PARAM = "sort";
 const PAGE_QUERY_PARAM = "page";
 
-export type Props = Pick<ProductListingPage, "sortOptions"> & { url: string };
+export type Props = Pick<ProductListingPage, "sortOptions"> & { url: string; noBorder?: boolean };
 
 const getUrl = (href: string, value: string) => {
   const url = new URL(href);
@@ -37,7 +38,7 @@ const labels: Record<string, string> = {
   "discount:desc": "Maior desconto",
 };
 
-function Sort({ sortOptions, url }: Props) {
+function Sort({ sortOptions, url, noBorder }: Props) {
   const current = getUrl(
     url,
     new URL(url).searchParams.get(SORT_QUERY_PARAM) ?? "",
@@ -49,11 +50,10 @@ function Sort({ sortOptions, url }: Props) {
 
   return (
     <>
-      <label for="sort" class="sr-only">Sort by</label>
       <select
         id="sort"
         name="sort"
-        class="select select-bordered w-full max-w-sm rounded-lg"
+        class={clx(noBorder ? "": "select-bordered", "select w-full max-w-sm rounded-lg text-sm")}
       >
         {options.map(({ value, label }) => (
           <option
