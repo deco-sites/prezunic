@@ -122,7 +122,7 @@
           "href": "/ofertasprime",
           "alt": "Prime",
           "desktopWidth": 410,
-          "desktopHeight": 20,
+          "desktopHeight": 250,
           "mobileWidth": 410,
           "mobileHeight": 250
         },
@@ -132,7 +132,7 @@
           "alt": "Encartes",
           "href": "/ofertas/encartes/",
           "desktopWidth": 410,
-          "desktopHeight": 20,
+          "desktopHeight": 250,
           "mobileWidth": 410,
           "mobileHeight": 250
         },
@@ -140,7 +140,11 @@
           "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ba131a14-550b-433b-88a1-37fd6a2f69f0",
           "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/30614cd3-afb1-4cae-8795-390ef596e343",
           "alt": "Whatsapp",
-          "href": "http://bit.ly/zapprezunic"
+          "href": "http://bit.ly/zapprezunic",
+          "desktopWidth": 410,
+          "desktopHeight": 250,
+          "mobileWidth": 410,
+          "mobileHeight": 250
         }
       ]
     },
