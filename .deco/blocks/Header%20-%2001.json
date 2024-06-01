@@ -96,5 +96,49 @@
   "user": {
     "__resolveType": "vtex/loaders/user.ts"
   },
-  "loading": "lazy"
+  "loading": "lazy",
+  "highlightItems": [
+    {
+      "label": "Ofertas Prime 👑",
+      "href": "/ofertasprime"
+    },
+    {
+      "label": "Cortes em Bife 🥩 ",
+      "href": "/142?map=productClusterIds"
+    },
+    {
+      "label": "Saudáveis 🥦 ",
+      "href": "/saudaveis"
+    },
+    {
+      "label": "Vinhos 🍷",
+      "href": "/bebida-alcoolica/vinhos-e-espumantes"
+    },
+    {
+      "label": "Churrasco 🍗",
+      "href": "/141?map=productClusterIds"
+    },
+    {
+      "label": "Bebidas  🥤 ",
+      "href": "/bebida-nao-alcoolica"
+    },
+    {
+      "label": "Combos Feirinha 🧅",
+      "href": "/combos-especiais"
+    },
+    {
+      "label": "Perfumaria 🧴 ",
+      "href": "https://www.prezunic.com.br/higiene-e-beleza"
+    },
+    {
+      "label": "Pets 🐶 ",
+      "href": "https://www.prezunic.com.br/pet-shop"
+    }
+  ],
+  "contentBefore": {
+    "show": true,
+    "text": "<p><span style=\"color: #ffffff\">Conheça o </span><strong><span style=\"color: #ffffff\">Prizunic Prime</span></strong><span style=\"color: #ffffff\"> e ganhe frete grátis</span></p>",
+    "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/f01d98c9-4e8f-4e37-9e2a-8108a87d9926",
+    "bg": "#3f3f3f"
+  }
 }

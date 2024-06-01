@@ -52,32 +52,34 @@ export interface SectionProps {
   user?: Person | null;
 
   variant?: "preview" | "full" | "menu";
+
+  highlightItems?: {
+    label: string;
+    href: string;
+  }[];
+  contentBefore?: {
+    show: boolean;
+    bg: Color;
+    image: ImageWidget;
+    text: Text;
+    link: string;
+  };
 }
+/** @format rich-text */
+type Text = string;
+
+/** @format color */
+type Color = string;
 
 type Props = Omit<SectionProps, "alert" | "loading"> & {
   variant: "preview" | "full";
 };
 
 function Desktop(
-  { logo, searchbar, user, variant }: Props,
+  { logo, searchbar, user, variant, highlightItems }: Props,
 ) {
   return (
     <>
-      <Drawer
-        id={SIDEMENU_DRAWER_ID}
-        aside={
-          <Drawer.Aside title="Menu" drawer={SIDEMENU_DRAWER_ID}>
-            <div
-              id={SIDEMENU_CONTAINER_ID}
-              class="h-full flex items-center justify-center"
-              style={{ minWidth: "100vw" }}
-            >
-              <span class="loading loading-spinner" />
-            </div>
-          </Drawer.Aside>
-        }
-      />
-
       <div class="container flex justify-between items-center w-full px-6 h-[72px]">
         <div class="flex justify-between items-center gap-8">
           <label
@@ -87,9 +89,9 @@ function Desktop(
             hx-target={`#${SIDEMENU_CONTAINER_ID}`}
             hx-swap="outerHTML"
             hx-trigger="click once"
-            hx-get={useSection({ props: { loading: "menu" } })}
+            hx-get={useSection({ props: { variant: "menu" } })}
           >
-            <Icon id="Bars3" size={20} strokeWidth={0.01} />
+            <Icon id="menu" size={20} strokeWidth={0.01} class="text-primary" />
           </label>
           <div class="flex justify-center py-2">
             {logo && (
@@ -113,25 +115,38 @@ function Desktop(
           </div>
         </div>
       </div>
+      <div class="container flex justify-between items-center py-2">
+        {highlightItems?.map((item) => (
+          <a href={item.href} class="text-sm">
+            {item.label}
+          </a>
+        ))}
+      </div>
+      <Drawer
+        id={SIDEMENU_DRAWER_ID}
+        aside={
+          <div
+            data-aside
+            class="absolute top-[110px] h-full w-full"
+          >
+            <div
+              class="h-full flex items-center justify-center"
+              id={SIDEMENU_CONTAINER_ID}
+              style={{ minWidth: "100vw" }}
+            >
+            </div>
+          </div>
+        }
+      />
     </>
   );
 }
 
 function Mobile(
-  { logo, searchbar }: Props,
+  { logo, searchbar, user, variant }: Props,
 ) {
   return (
-    <>
-      <Drawer
-        id={SEARCHBAR_DRAWER_ID}
-        aside={
-          <Drawer.Aside title="Search" drawer={SEARCHBAR_DRAWER_ID}>
-            <div class="w-screen overflow-y-auto">
-              <Searchbar {...searchbar} />
-            </div>
-          </Drawer.Aside>
-        }
-      />
+    <div>
       <Drawer
         id={SIDEMENU_DRAWER_ID}
         aside={
@@ -149,47 +164,45 @@ function Mobile(
 
       <div
         style={{ height: NAVBAR_HEIGHT }}
-        class="grid grid-cols-3 justify-between items-center border-b border-base-200 w-full px-6 pb-6 gap-2"
+        class="flex justify-between items-center w-full px-4 gap-2"
       >
-        <label
-          for={SIDEMENU_DRAWER_ID}
-          class="btn btn-circle md:btn-sm btn-xs btn-ghost"
-          aria-label="open menu"
-          hx-target={`#${SIDEMENU_CONTAINER_ID}`}
-          hx-swap="outerHTML"
-          hx-trigger="click once"
-          hx-get={useSection({ props: { loading: "menu" } })}
-        >
-          <Icon id="Bars3" size={20} strokeWidth={0.01} />
-        </label>
-        {logo && (
-          <a
-            href="/"
-            class="flex-grow inline-flex items-center justify-center"
-            style={{ minHeight: NAVBAR_HEIGHT }}
-            aria-label="Store logo"
+        <div class="flex justify-between items-center gap-2">
+          <label
+            for={SIDEMENU_DRAWER_ID}
+            class="btn btn-circle md:btn-sm btn-xs btn-ghost"
+            aria-label="open menu"
+            hx-target={`#${SIDEMENU_CONTAINER_ID}`}
+            hx-swap="outerHTML"
+            hx-trigger="click once"
+            hx-get={useSection({ props: { variant: "menu" } })}
           >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              width={logo.width || 100}
-              height={logo.height || 13}
-            />
-          </a>
-        )}
+            <Icon id="menu" size={20} strokeWidth={0.01} class="text-primary" />
+          </label>
+
+          {logo && (
+            <a
+              href="/"
+              class="flex-grow inline-flex items-center justify-center"
+              style={{ minHeight: NAVBAR_HEIGHT }}
+              aria-label="Store logo"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                width={logo.width || 100}
+                height={logo.height || 13}
+              />
+            </a>
+          )}
+        </div>
 
         <div class="flex justify-end gap-1">
-          <label
-            for={SEARCHBAR_DRAWER_ID}
-            class="btn btn-circle btn-sm btn-ghost"
-            aria-label="search icon button"
-          >
-            <Icon id="MagnifyingGlass" size={20} strokeWidth={0.1} />
-          </label>
+          <Login user={user} variant={variant} />
           <Bag />
         </div>
       </div>
-    </>
+      <Searchbar {...searchbar} />
+    </div>
   );
 }
 
@@ -202,13 +215,14 @@ function Header({
     height: 16,
     alt: "Logo",
   },
+  contentBefore,
   ...props
 }: Props) {
   const device = useDevice();
 
   return (
     <header
-      style={{ height: HEADER_HEIGHT }}
+      class="h-[155px] sm:h-[186px]"
       // Refetch the header in two situations
       // 1. When the window is resized so we have a gracefull Developer Experience
       // 2. When the user changes tab, so we can update the minicart badge when the user comes back
@@ -243,6 +257,20 @@ function Header({
       )}
 
       <div class="bg-base-100 fixed w-full z-40">
+        {contentBefore && contentBefore.show &&
+          (
+            <a
+              href={contentBefore.link}
+              style={{ background: contentBefore.bg || "white" }}
+              class="hidden sm:flex gap-2 justify-center items-center py-2"
+            >
+              {contentBefore.image &&
+                <Image src={contentBefore.image} width={133} height={32} />}
+              {contentBefore.text && (
+                <p dangerouslySetInnerHTML={{ __html: contentBefore.text }}></p>
+              )}
+            </a>
+          )}
         {alerts.length > 0 && <Alert alerts={alerts} />}
         {device === "desktop"
           ? <Desktop logo={logo} {...props} />

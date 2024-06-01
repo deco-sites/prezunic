@@ -14,7 +14,7 @@ function Bag() {
         data-minicart-items-count
         class={clx(
           "btn btn-circle btn-sm btn-ghost no-animation",
-          "after:hidden after:indicator-item after:badge after:badge-secondary after:badge-sm after:content-[attr(data-minicart-items-count)] after:font-thin",
+          "after:hidden after:indicator-item after:badge after:badge-primary after:badge-sm after:content-[attr(data-minicart-items-count)] after:font-thin",
         )}
       >
         <Icon

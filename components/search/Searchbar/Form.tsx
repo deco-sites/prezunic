@@ -82,12 +82,12 @@ export default function Searchbar(
       <form
         id={SEARCHBAR_INPUT_FORM_ID}
         action={ACTION}
-        class="flex pl-4 pr-2 justify-between join rounded-full border-[1px] border-base-200 w-[480px] h-[42px] relative"
+        class="flex pl-4 pr-2 justify-between join rounded-none sm:rounded-full border-y-[1px] sm:border-[1px] border-base-200 w-full sm:w-[480px] h-[42px] relative"
       >
         <input
           autoFocus
           tabIndex={0}
-          class="w-full text-xs"
+          class="w-full text-xs border-none outline-none"
           name={NAME}
           placeholder={placeholder}
           autocomplete="off"

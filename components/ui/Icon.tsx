@@ -49,7 +49,8 @@ export type AvailableIcons =
   | "share"
   | "cart"
   | "myaccount"
-  | "pin";
+  | "pin"
+  | "menu";
 
 interface Props extends JSX.SVGAttributes<SVGSVGElement> {
   /**

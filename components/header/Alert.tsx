@@ -24,11 +24,12 @@ function Alert({ alerts = [] }: Props) {
             22471-003
           </span>
         </div>
-        <span class="block w-[1px] h-[25px] bg-secondary-content "></span>
+        <span class="hidden sm:block w-[1px] h-[25px] bg-secondary-content ">
+        </span>
         {alerts.map((alert, index) => (
           <a
             href={alert.link}
-            class="text-[13px] text-secondary-content flex justify-center items-center h-[38px]"
+            class="hidden sm:flex text-[13px] text-secondary-content justify-center items-center h-[38px]"
           >
             {alert.label}
           </a>

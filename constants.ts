@@ -9,5 +9,5 @@ export const SEARCHBAR_DRAWER_ID = "searchbar-drawer";
 export const SEARCHBAR_POPUP_ID = "searchbar-popup";
 export const SEARCHBAR_INPUT_FORM_ID = "searchbar-form";
 
-export const HEADER_HEIGHT = "110px";
+export const HEADER_HEIGHT = "186px";
 export const NAVBAR_HEIGHT = "75px";

@@ -76,7 +76,7 @@ function ProductCard({
         class={clx(
           "card card-compact group w-full bg-white",
           "lg:border lg:border-transparent lg:hover:border-inherit",
-          isSuggestion ? "" : "lg:p-4",
+          isSuggestion ? "" : "p-2 lg:p-4",
         )}
       >
         <div

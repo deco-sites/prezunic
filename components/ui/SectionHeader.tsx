@@ -22,7 +22,7 @@ function Header({ title, description, colorReverse, alignment }: Props) {
       {title && (
         <h2
           class={clx(
-            "text-2xl ",
+            "sm:text-2xl",
             colorReverse ? "text-primary-content" : "text-base-content",
           )}
         >

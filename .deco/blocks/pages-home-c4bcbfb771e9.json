@@ -8,6 +8,17 @@
       "__resolveType": "Header - 01"
     },
     {
+      "__resolveType": "site/sections/Images/ImageGallery.tsx",
+      "banners": [
+        {
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/56b6c937-893c-424a-be3d-40fdc406e1b0",
+          "alt": "Cash back no pix",
+          "href": "/"
+        }
+      ],
+      "hideMobile": true
+    },
+    {
       "__resolveType": "site/sections/Images/Carousel.tsx",
       "dots": false,
       "arrows": true,
@@ -45,6 +56,29 @@
       "preload": true
     },
     {
+      "__resolveType": "site/sections/Images/ImageGallery.tsx",
+      "banners": [
+        {
+          "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/00d93a31-ac0d-468a-846a-8d2992f70770",
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/caf71581-b7dd-4505-afc8-579af91d6083",
+          "href": "/ofertas/ofertas-do-dia/",
+          "alt": "Ofertas"
+        },
+        {
+          "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/95e706b5-b8e4-47c5-988c-eea048aefd10",
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ea842ce5-250e-432f-9cd7-c9f5ce81c2af",
+          "alt": "Dicas",
+          "href": "/institucional/novo-prezunic-vila-isabel/"
+        }
+      ],
+      "layout": {
+        "borderRadius": {
+          "mobile": "lg",
+          "desktop": "lg"
+        }
+      }
+    },
+    {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
         "showArrows": true,
@@ -63,18 +97,48 @@
         "crossSelling": "similars",
         "__resolveType": "vtex/loaders/legacy/productList.ts"
       },
-      "title": "Ofertas do dia"
+      "title": "Ofertas do dia 🥰"
+    },
+    {
+      "__resolveType": "site/sections/Images/ImageGallery.tsx",
+      "layout": {
+        "borderRadius": {
+          "mobile": "lg",
+          "desktop": "lg"
+        }
+      },
+      "banners": [
+        {
+          "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/85cdca87-e924-4032-af94-3f94e1377a72",
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/527d7776-d56a-45e8-82f7-a4213b306126",
+          "href": "/ofertasprime",
+          "alt": "Prime"
+        },
+        {
+          "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/8ca818f7-2a84-425d-b2e8-f1456f40ccf5",
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/2de2038d-778b-4f27-be94-a6994527c419",
+          "alt": "Encartes",
+          "href": "/ofertas/encartes/"
+        },
+        {
+          "srcMobile": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/ba131a14-550b-433b-88a1-37fd6a2f69f0",
+          "srcDesktop": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/30614cd3-afb1-4cae-8795-390ef596e343",
+          "alt": "Whatsapp",
+          "href": "http://bit.ly/zapprezunic"
+        }
+      ]
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
+        "headerAlignment": "left",
         "showArrows": true,
         "numberOfSliders": {
           "desktop": 5,
           "mobile": 2
-        },
-        "headerAlignment": "left"
+        }
       },
+      "title": "Ofertas prime 👑",
       "products": {
         "props": {
           "sort": "OrderByBestDiscountDESC",
@@ -83,40 +147,19 @@
         },
         "crossSelling": "similars",
         "__resolveType": "vtex/loaders/legacy/productList.ts"
-      },
-      "title": "Ofertas prime"
+      }
     },
     {
       "__resolveType": "site/sections/Product/ProductShelf.tsx",
       "layout": {
+        "headerAlignment": "left",
         "showArrows": true,
         "numberOfSliders": {
           "desktop": 5,
           "mobile": 2
-        },
-        "headerAlignment": "left"
+        }
       },
-      "products": {
-        "props": {
-          "sort": "",
-          "count": 10,
-          "collection": "1045"
-        },
-        "crossSelling": "similars",
-        "__resolveType": "vtex/loaders/legacy/productList.ts"
-      },
-      "title": "Especial Maturata"
-    },
-    {
-      "__resolveType": "site/sections/Product/ProductShelf.tsx",
-      "layout": {
-        "showArrows": true,
-        "numberOfSliders": {
-          "desktop": 5,
-          "mobile": 2
-        },
-        "headerAlignment": "left"
-      },
+      "title": "Produtos com cashback",
       "products": {
         "props": {
           "sort": "OrderByBestDiscountDESC",
@@ -125,16 +168,15 @@
         },
         "crossSelling": "similars",
         "__resolveType": "vtex/loaders/legacy/productList.ts"
-      },
-      "title": "Produtos com cashback"
+      }
     },
     {
       "__resolveType": "site/sections/Product/ProductShelfTabbed.tsx",
       "layout": {
-        "headerAlignment": "center",
+        "headerAlignment": "left",
         "headerfontSize": "Large"
       },
-      "title": "Melhor de cada departamento",
+      "title": "Melhor de cada departamento 🙌",
       "tabs": [
         {
           "title": "Aves",

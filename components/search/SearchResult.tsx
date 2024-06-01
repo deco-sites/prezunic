@@ -226,7 +226,7 @@ function Result(props: SectionProps<typeof loader>) {
   const id = useId();
 
   return (
-    <>
+    <div class="bg-white">
       <div id={id} {...viewItemListEvent}>
         {partial
           ? <PageResult {...props} />
@@ -256,7 +256,7 @@ function Result(props: SectionProps<typeof loader>) {
         type="module"
         src={scriptAsDataURI(setPageQuerystring, `${pageInfo.currentPage}`, id)}
       />
-    </>
+    </div>
   );
 }
 
