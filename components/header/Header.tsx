@@ -4,11 +4,9 @@ import Image from "apps/website/components/Image.tsx";
 import { useDevice } from "deco/hooks/useDevice.ts";
 import { useSection } from "deco/hooks/useSection.ts";
 import {
-  HEADER_HEIGHT,
   MINICART_CONTAINER_ID,
   MINICART_DRAWER_ID,
   NAVBAR_HEIGHT,
-  SEARCHBAR_DRAWER_ID,
   SIDEMENU_CONTAINER_ID,
   SIDEMENU_DRAWER_ID,
 } from "../../constants.ts";

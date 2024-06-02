@@ -55,9 +55,6 @@ function script(minicartFormId: string) {
 
         const decoded = JSON.parse(decodeURIComponent(event));
         const transformed = beforeSend(decoded, e);
-
-        console.log("Sending event", transformed);
-
         globalThis.window.DECO.events.dispatch(transformed);
       }
 
@@ -155,70 +152,70 @@ function script(minicartFormId: string) {
         );
 
         // Set minicart quantities on dom items
-        items?.forEach((item) => {
-          const id = item.getAttribute("data-item-id");
-          const cartInput = item.querySelector("input");
-          const quantity = cartInput?.value ?? "1";
+        // items?.forEach((item) => {
+        //   const id = item.getAttribute("data-item-id");
+        //   const cartInput = item.querySelector("input");
+        //   const quantity = cartInput?.value ?? "1";
 
-          const decrease = item.querySelector("button[data-action-decrease]") as
-            | HTMLButtonElement
-            | null;
-          const increase = item.querySelector("button[data-action-increase]") as
-            | HTMLButtonElement
-            | null;
+        //   const decrease = item.querySelector("button[data-action-decrease]") as
+        //     | HTMLButtonElement
+        //     | null;
+        //   const increase = item.querySelector("button[data-action-increase]") as
+        //     | HTMLButtonElement
+        //     | null;
 
-          if (cartInput && !storefront.SEEN.has(item)) {
-            storefront.SEEN.set(item, true);
+        //   if (cartInput && !storefront.SEEN.has(item)) {
+        //     storefront.SEEN.set(item, true);
 
-            decrease?.addEventListener("click", () => {
-              const newValue = `${+cartInput.value - 1}`;
+        //     decrease?.addEventListener("click", () => {
+        //       const newValue = `${+cartInput.value - 1}`;
 
-              if (newValue === "0") {
-                decrease.disabled = true;
-              } else {
-                cartInput.value = newValue;
-              }
-            });
-            increase?.addEventListener("click", () => {
-              cartInput.value = `${+cartInput.value + 1}`;
-            });
-          }
+        //       if (newValue === "0") {
+        //         decrease.disabled = true;
+        //       } else {
+        //         cartInput.value = newValue;
+        //       }
+        //     });
+        //     increase?.addEventListener("click", () => {
+        //       cartInput.value = `${+cartInput.value + 1}`;
+        //     });
+        //   }
 
-          document.querySelectorAll(
-            `[data-add-to-cart][data-product-id="${id}"]`,
-          )?.forEach((container) => {
-            // Update quantities on all AddToCartButtons
-            container.querySelector('input[type="checkbox"]')
-              ?.setAttribute("checked", "true");
+        //   document.querySelectorAll(
+        //     `[data-add-to-cart][data-product-id="${id}"]`,
+        //   )?.forEach((container) => {
+        //     // Update quantities on all AddToCartButtons
+        //     container.querySelector('input[type="checkbox"]')
+        //       ?.setAttribute("checked", "true");
 
-            const input = container.querySelector('input[type="number"]');
-            input?.setAttribute("value", quantity);
-            input?.removeAttribute("disabled");
+        //     const input = container.querySelector('input[type="number"]');
+        //     input?.setAttribute("value", quantity);
+        //     input?.removeAttribute("disabled");
 
-            // Setup callbacks
-            input?.addEventListener("change", (e) => {
-              e?.stopPropagation();
-              cartInput.value = e.currentTarget.value;
-              e.currentTarget.disabled = true;
+        //     // Setup callbacks
+        //     input?.addEventListener("change", (e) => {
+        //       e?.stopPropagation();
+        //       cartInput.value = e.currentTarget.value;
+        //       e.currentTarget.disabled = true;
 
-              cartInput?.dispatchEvent(new Event("change", { bubbles: true }));
-            });
-            container.querySelector("[data-action-decrease]")
-              ?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                decrease?.click();
-                e.currentTarget.parentElement.querySelector("input").disabled =
-                  true;
-              });
-            container.querySelector("[data-action-increase]")
-              ?.addEventListener("click", (e) => {
-                e.stopPropagation();
-                increase?.click();
-                e.currentTarget.parentElement.querySelector("input").disabled =
-                  true;
-              });
-          });
-        });
+        //       cartInput?.dispatchEvent(new Event("change", { bubbles: true }));
+        //     });
+        //     container.querySelector("[data-action-decrease]")
+        //       ?.addEventListener("click", (e) => {
+        //         e.stopPropagation();
+        //         decrease?.click();
+        //         e.currentTarget.parentElement.querySelector("input").disabled =
+        //           true;
+        //       });
+        //     container.querySelector("[data-action-increase]")
+        //       ?.addEventListener("click", (e) => {
+        //         e.stopPropagation();
+        //         increase?.click();
+        //         e.currentTarget.parentElement.querySelector("input").disabled =
+        //           true;
+        //       });
+        //   });
+        // });
       }
 
       onDOMChange(exposeCartToWindow);

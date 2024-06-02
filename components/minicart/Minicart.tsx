@@ -10,6 +10,7 @@ import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import Coupon from "./Coupon.tsx";
 import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "./Item.tsx";
+import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 
 export interface Minicart {
   original: Record<string, unknown>;
@@ -28,6 +29,34 @@ export interface Minicart {
     currency: string;
   };
 }
+
+const onLoad = (id: string) => {
+  const container = document.getElementById(id) as HTMLDivElement | null;
+
+  if (!container) {
+    return;
+  }
+
+  // Write cart form quantities to AddToCartButton
+  container.querySelectorAll<HTMLFieldSetElement>("[data-item-id]").forEach(
+    (fieldSet) => {
+      const itemId = fieldSet.getAttribute("data-item-id");
+      const quantity =
+        fieldSet.querySelector<HTMLInputElement>('input[type="number"]')
+          ?.value ?? "0";
+
+      // sync cart quantities
+      document.querySelectorAll<HTMLInputElement>(
+        `[data-add-to-cart][data-product-id="${itemId}"] input[type="number"]`,
+      ).forEach((input) => input.value = quantity);
+
+      // toggle mode checkbox
+      document.querySelectorAll<HTMLInputElement>(
+        `[data-add-to-cart][data-product-id="${itemId}"] input[type="checkbox"]`,
+      ).forEach((input) => input.checked = Number(quantity) > 0);
+    },
+  );
+};
 
 function Cart({
   cart: {
@@ -99,8 +128,9 @@ function Cart({
             <form
               id={MINICART_FORM_ID}
               class="contents"
+              hx-sync="this:replace"
               hx-disabled-elt="this"
-              hx-trigger="submit, change"
+              hx-trigger="submit, change delay:300ms"
               hx-target={`#${MINICART_CONTAINER_ID}`}
               hx-indicator={`#${MINICART_CONTAINER_ID}`}
               hx-post={useSubmitCart()}
@@ -178,6 +208,8 @@ function Cart({
             </footer>
           </>
         )}
+
+      <script defer src={scriptAsDataURI(onLoad, MINICART_CONTAINER_ID)} />
     </div>
   );
 }

@@ -1,12 +1,15 @@
 import { Product } from "apps/commerce/types.ts";
 import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 import { JSX } from "preact";
-import { MINICART_CONTAINER_ID } from "../../constants.ts";
+import { MINICART_CONTAINER_ID, MINICART_FORM_ID } from "../../constants.ts";
 import { useAddToCart } from "../../sdk/cart.ts";
 import { clx } from "../../sdk/clx.ts";
 import { useId } from "../../sdk/useId.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
+import QuantitySelector from "../ui/QuantitySelector.tsx";
+import { useCallback } from "../../sdk/useCallback.ts";
 
 export interface Props extends JSX.HTMLAttributes<HTMLLabelElement> {
   product: Product;
@@ -16,6 +19,59 @@ export interface Props extends JSX.HTMLAttributes<HTMLLabelElement> {
 
   class?: string;
 }
+
+// Write current values to cart form
+const onChange = (productId: string, cartFormId: string) => {
+  const cartInput = document.getElementById(cartFormId)
+    ?.querySelector<HTMLInputElement>(
+      `[data-item-id="${productId}"] input[type="number"]`,
+    );
+
+  if (!cartInput) {
+    return;
+  }
+
+  document.querySelectorAll<HTMLInputElement>(
+    `[data-add-to-cart][data-product-id="${productId}"]`,
+  ).forEach((container) => {
+    const checkbox = container.querySelector<HTMLInputElement>(
+      `input[type="checkbox"]`,
+    )!;
+    const quantity = container.querySelector<HTMLInputElement>(
+      `input[type="number"]`,
+    )!;
+
+    cartInput.value = quantity.value;
+    cartInput.dispatchEvent(new Event("change", { bubbles: true }));
+    checkbox.checked = Number(quantity.value) > 0;
+  });
+};
+
+// Copy cart form values into AddToCartButton
+const onLoad = (productId: string, cartFormId: string) => {
+  const cartInput = document.getElementById(cartFormId)
+    ?.querySelector<HTMLInputElement>(
+      `[data-item-id="${productId}"] input[type="number"]`,
+    );
+
+  if (!cartInput) {
+    return;
+  }
+
+  document.querySelectorAll<HTMLInputElement>(
+    `[data-add-to-cart][data-product-id="${productId}"]`,
+  ).forEach((container) => {
+    const checkbox = container.querySelector<HTMLInputElement>(
+      `input[type="checkbox"]`,
+    )!;
+    const quantity = container.querySelector<HTMLInputElement>(
+      `input[type="number"]`,
+    )!;
+
+    quantity.value = cartInput.value;
+    checkbox.checked = true;
+  });
+};
 
 function AddToCartButton(
   { product, price, listPrice, seller, class: _class }: Props,
@@ -81,9 +137,9 @@ function AddToCartButton(
         for={id}
         data-deco="add-to-cart"
         class={clx(
-          "btn hover:bg-[#f5f5f5] active:bg-black  no-animation",
-          _class,
+          "btn no-animation",
           "peer-checked:hidden w-full",
+          _class,
         )}
         hx-disabled-elt="this"
         hx-indicator={`#${MINICART_CONTAINER_ID}`}
@@ -95,41 +151,18 @@ function AddToCartButton(
         Adicionar à Sacola
       </label>
 
-      <div
-        class={clx(
-          "hidden peer-checked:flex flex-grow",
-          "join border rounded-none w-min",
-        )}
-      >
-        <button data-action-decrease class="btn btn-square btn-ghost join-item">
-          -
-        </button>
-        <div
-          class={clx(
-            "flex-grow flex justify-center",
-            "has-[:invalid]:tooltip has-[:invalid]:tooltip-error has-[:invalid]:tooltip-open has-[:invalid]:tooltip-bottom",
-          )}
-          data-tip="Quantity must be higher than 1"
-        >
-          <input
-            data-action-quantity
-            class={clx(
-              "input text-center join-item [appearance:textfield] flex-grow",
-              "invalid:input-error peer disabled:hidden inline",
-            )}
-            inputMode="numeric"
-            type="number"
-            disabled
-            maxLength={3}
-            min={1}
-            size={3}
-          />
-          <span class="peer-disabled:inline hidden loading loading-spinner" />
-        </div>
-        <button data-action-increase class="btn btn-square btn-ghost join-item">
-          +
-        </button>
+      <div class="hidden peer-checked:inline flex-grow">
+        <QuantitySelector
+          value={1}
+          min={0}
+          max={100}
+          hx-on:change={useCallback(onChange, productID, MINICART_FORM_ID)}
+        />
       </div>
+      <script
+        defer
+        src={scriptAsDataURI(onLoad, productID, MINICART_FORM_ID)}
+      />
     </div>
   );
 }
