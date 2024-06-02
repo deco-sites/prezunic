@@ -55,58 +55,35 @@ const cartFrom = (
   return { coupon, items };
 };
 
-// Update cart state based on the received action
-const applyVerb = (items: number[], verb: string, index: number) => {
-  const newItems = items.map((quantity, i) => {
-    if (i === index) {
-      return {
-        quantity: verb === "decrease"
-          ? quantity - 1
-          : verb === "increase"
-          ? quantity + 1
-          : verb === "remove"
-          ? 0
-          : quantity,
-        index: i,
-      };
-    }
-
-    return { quantity, index: i };
-  });
-
-  return newItems;
-};
-
 async function action(
   _props: unknown,
   req: Request,
   ctx: AppContext,
 ): Promise<Minicart> {
-  try {
-    const { setQuantity, setCoupon } = actions[usePlatform()];
+  const { setQuantity, setCoupon } = actions[usePlatform()];
 
-    const form = await req.formData();
+  const form = await req.formData();
 
-    // Original, platform specific cart state
-    const original = JSON.parse(
-      decodeURIComponent(form.get("original")?.toString() ?? ""),
-    );
+  // Original, platform specific cart state
+  const original = JSON.parse(
+    decodeURIComponent(form.get("original")?.toString() ?? ""),
+  );
 
-    const [verb, it] = form.get("action")?.toString()?.split("::") ?? [];
+  const verb = form.get("action")?.toString();
+  const cart = cartFrom(form);
 
-    const cart = cartFrom(form);
-
-    if (verb === "setCoupon") {
-      return setCoupon!({ text: cart.coupon }, req, ctx);
-    }
-
-    const newItems = applyVerb(cart.items, verb, Number(it));
-    return setQuantity!({ items: newItems, original }, req, ctx);
-  } catch (error) {
-    console.error(error);
-
-    throw error;
+  if (verb === "setCoupon") {
+    return setCoupon!({ text: cart.coupon }, req, ctx);
   }
+
+  return setQuantity!(
+    {
+      items: cart.items.map((quantity, index) => ({ quantity, index })),
+      original,
+    },
+    req,
+    ctx,
+  );
 }
 
 export default action;
