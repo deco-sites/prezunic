@@ -70,7 +70,10 @@ function ProductShelf({
   });
 
   return (
-    <div class="w-full px-2 sm:px-0 container py-8 flex flex-col gap-6 lg:py-10">
+    <div
+      class="w-full px-2 sm:px-0 container py-8 flex flex-col gap-6 lg:py-10"
+      id={id}
+    >
       <div class="flex justify-between items-center">
         <Header
           title={title || ""}
@@ -95,7 +98,6 @@ function ProductShelf({
       </div>
 
       <div
-        id={id}
         class={clx(
           "grid",
           layout?.showArrows && "grid-cols-[1fr]",

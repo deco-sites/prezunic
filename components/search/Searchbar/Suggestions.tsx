@@ -55,13 +55,12 @@ function Suggestions(
   return (
     <div
       class={clx(
-        `overflow-y-scroll`,
         !hasProducts && !hasTerms && "hidden",
-        "bg-white p-5 max-w-[520px]",
+        "bg-white max-w-[520px]",
       )}
     >
-      <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-2">
+      <div class="flex flex-col">
+        <div class="flex flex-col gap-2 p-5">
           <span
             class="text-sm"
             role="heading"
@@ -86,8 +85,8 @@ function Suggestions(
             ))}
           </ul>
         </div>
-        <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-          <div class="flex flex-col gap-2">
+        <div class="flex flex-col md:pt-0 gap-6 overflow-x-hidden max-h-[300px]">
+          <div class="flex flex-col gap-2 px-5">
             {products.map((product, index) => (
               <ProductCard
                 product={product}

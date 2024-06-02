@@ -99,7 +99,7 @@
       "products": {
         "props": {
           "sort": "",
-          "count": 29,
+          "count": 10,
           "collection": "160"
         },
         "crossSelling": "similars",
@@ -162,7 +162,7 @@
       "products": {
         "props": {
           "sort": "OrderByBestDiscountDESC",
-          "count": 14,
+          "count": 10,
           "collection": "1060"
         },
         "crossSelling": "similars",
@@ -183,7 +183,7 @@
       "products": {
         "props": {
           "sort": "OrderByBestDiscountDESC",
-          "count": 9,
+          "count": 10,
           "collection": "996"
         },
         "crossSelling": "similars",

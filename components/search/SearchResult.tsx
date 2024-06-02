@@ -106,7 +106,7 @@ function PageResult(props: SectionProps<typeof loader>) {
         class={clx(
           "grid items-center",
           "grid-cols-2 gap-2",
-          "sm:grid-cols-4 sm:gap-10",
+          "sm:grid-cols-4 sm:gap-2",
         )}
       >
         {products?.map((product, index) => (
@@ -226,7 +226,20 @@ function Result(props: SectionProps<typeof loader>) {
 
   const id = useId();
 
-  console.log(pageInfo);
+  const _url = new URL(url);
+  const query = _url.searchParams.get("q");
+
+  if (query) {
+    breadcrumb.itemListElement = [
+      ...breadcrumb.itemListElement,
+      {
+        "@type": "ListItem",
+        position: breadcrumb.itemListElement.length + 1,
+        name: query,
+        item: url,
+      },
+    ];
+  }
 
   return (
     <div class="bg-white">
@@ -250,13 +263,21 @@ function Result(props: SectionProps<typeof loader>) {
                 <div class="self-start">
                   <div class="hidden sm:flex justify-between items-center">
                     {pageInfo?.records && pageInfo?.recordPerPage && (
-                      <p class="text-sm font-bold">
-                        Página {zeroIndexedOffsetPage + 1} de{" "}
-                        {Math.ceil(pageInfo?.records / pageInfo?.recordPerPage)}
-                      </p>
+                      <div class="flex flex-col gap-2">
+                        {query && (
+                          <p class="text-sm font-bold">
+                            Você buscou por: {query}
+                          </p>
+                        )}
+                        <p class="text-sm font-bold">
+                          Página {zeroIndexedOffsetPage} de {Math.ceil(
+                            pageInfo?.records / pageInfo?.recordPerPage,
+                          )}
+                        </p>
+                      </div>
                     )}
                     <div class="flex justify-between items-center gap-2">
-                      <p>Ordenar por</p>
+                      <p class="whitespace-nowrap">Ordenar por</p>
                       {sortOptions.length > 0 && (
                         <Sort sortOptions={sortOptions} url={url} />
                       )}

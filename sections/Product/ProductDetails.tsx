@@ -4,6 +4,7 @@ import ProductInfo from "../../components/product/ProductInfo.tsx";
 import { clx } from "../../sdk/clx.ts";
 import NotFound from "../../sections/Product/NotFound.tsx";
 import Breadcrumb from "../../components/ui/Breadcrumb.tsx";
+import { useDevice } from "deco/hooks/useDevice.ts";
 
 export interface Props {
   /** @title Integration */
@@ -15,6 +16,8 @@ export default function ProductDetails({ page }: Props) {
     return <NotFound />;
   }
 
+  const device = useDevice();
+
   return (
     <div class="bg-white">
       <div
@@ -24,19 +27,19 @@ export default function ProductDetails({ page }: Props) {
           "sm:grid-cols-5 sm:gap-6 sm:py-6",
         )}
       >
-        <div class="col-span-5">
+        <div class="sm:col-span-5">
           <Breadcrumb itemListElement={page.breadcrumbList.itemListElement} />
         </div>
         <div class="sm:col-span-3">
-          <ImageGallerySlider page={page} />
+          <ImageGallerySlider page={page} device={device} />
         </div>
         <div class="sm:col-span-2">
           <ProductInfo page={page} />
         </div>
         {page.product.description && (
-          <div class="col-span-5">
+          <div class="sm:col-span-5">
             <div
-              class="ml-2 mt-2"
+              class="text-xs sm:text-sm mx-4 sm:ml-2 mt-2 mb-4"
               dangerouslySetInnerHTML={{ __html: page.product.description }}
             />
           </div>
