@@ -6,7 +6,6 @@ import { useOffer } from "../../sdk/useOffer.ts";
 import { usePlatform } from "../../sdk/usePlatform.tsx";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
 import ShippingSimulationForm from "../shipping/Form.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
 import AddToCartButton from "./AddToCartButton.tsx";
 import OutOfStock from "./OutOfStock.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
@@ -25,16 +24,13 @@ function ProductInfo({ page }: Props) {
 
   const { breadcrumbList, product } = page;
   const { productID, offers, gtin, isVariantOf } = product;
-  const description = product.description || isVariantOf?.description;
   const title = isVariantOf?.name ?? product.name;
   const {
     price = 0,
     listPrice,
     seller = "1",
-    installments,
     availability,
   } = useOffer(offers);
-  const productGroupID = isVariantOf?.productGroupID ?? "";
   const breadcrumb = {
     ...breadcrumbList,
     itemListElement: breadcrumbList?.itemListElement.slice(0, -1),

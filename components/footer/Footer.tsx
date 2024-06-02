@@ -1,13 +1,7 @@
 import type { ImageWidget } from "apps/admin/widgets.ts";
 import PoweredByDeco from "apps/website/components/PoweredByDeco.tsx";
-import BackToTop from "../../components/footer/BackToTop.tsx";
-import Divider from "../../components/footer/Divider.tsx";
-import ExtraLinks from "../../components/footer/ExtraLinks.tsx";
 import FooterItems from "../../components/footer/FooterItems.tsx";
 import Logo from "../../components/footer/Logo.tsx";
-import MobileApps from "../../components/footer/MobileApps.tsx";
-import PaymentMethods from "../../components/footer/PaymentMethods.tsx";
-import RegionSelector from "../../components/footer/RegionSelector.tsx";
 import Social from "../../components/footer/Social.tsx";
 import { clx } from "../../sdk/clx.ts";
 

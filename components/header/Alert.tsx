@@ -26,7 +26,7 @@ function Alert({ alerts = [] }: Props) {
         </div>
         <span class="hidden sm:block w-[1px] h-[25px] bg-secondary-content ">
         </span>
-        {alerts.map((alert, index) => (
+        {alerts.map((alert) => (
           <a
             href={alert.link}
             class="hidden sm:flex text-[13px] text-secondary-content justify-center items-center h-[38px]"

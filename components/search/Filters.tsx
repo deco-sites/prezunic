@@ -17,7 +17,7 @@ const isToggle = (filter: Filter): filter is FilterToggle =>
   filter["@type"] === "FilterToggle";
 
 function ValueItem(
-  { url, selected, label, quantity }: FilterToggleValue,
+  { url, selected, label }: FilterToggleValue,
 ) {
   return (
     <a href={url} rel="nofollow" class="flex items-center gap-2">

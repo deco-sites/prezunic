@@ -4,8 +4,6 @@ import type { AppContext } from "../../../apps/site.ts";
 import { clx } from "../../../sdk/clx.ts";
 import { ComponentProps } from "../../../sections/Component.tsx";
 import ProductCard from "../../product/ProductCard.tsx";
-import Icon from "../../ui/Icon.tsx";
-import Slider from "../../ui/Slider.tsx";
 import { ACTION, NAME } from "./Form.tsx";
 
 export interface Props {

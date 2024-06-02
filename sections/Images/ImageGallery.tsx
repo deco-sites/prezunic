@@ -181,7 +181,7 @@ function Banner(
 }
 
 export default function Gallery(props: Props) {
-  const { title, description, banners, layout } = {
+  const { title, description, banners } = {
     ...DEFAULT_PROPS,
     ...props,
   };
@@ -209,7 +209,7 @@ export default function Gallery(props: Props) {
           "items-end",
         )}
       >
-        {banners?.map((banner, index) => (
+        {banners?.map((banner) => (
           <li class="">
             <Banner {...banner} borderRadius={props.layout?.borderRadius} />
           </li>

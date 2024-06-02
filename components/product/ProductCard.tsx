@@ -5,9 +5,8 @@ import { clx } from "../../sdk/clx.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
+import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import AddToCartButton from "./AddToCartButton.tsx";
 import { Ring } from "./ProductVariantSelector.tsx";
 
