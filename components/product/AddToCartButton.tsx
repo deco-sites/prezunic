@@ -73,6 +73,23 @@ const onLoad = (productId: string, cartFormId: string) => {
   });
 };
 
+const onClick = () => {
+  const label = event?.currentTarget as HTMLLabelElement;
+  const checkbox = label.parentElement?.querySelector<HTMLInputElement>(
+    'input[type="checkbox"]',
+  );
+  const input = label.parentElement?.querySelector<HTMLInputElement>(
+    'input[type="number"]',
+  );
+  if (input) {
+    input.value = "1";
+    input.dispatchEvent(new Event("change", { bubbles: true }));
+  }
+  if (checkbox) {
+    checkbox.checked = true;
+  }
+};
+
 function AddToCartButton(
   { product, price, listPrice, seller, class: _class }: Props,
 ) {
@@ -135,7 +152,6 @@ function AddToCartButton(
       <label
         {...addToCartEvent}
         for={id}
-        data-deco="add-to-cart"
         class={clx(
           "btn no-animation",
           "peer-checked:hidden w-full",
@@ -147,6 +163,7 @@ function AddToCartButton(
         // deno-lint-ignore no-explicit-any
         hx-post={useAddToCart(props as any)}
         hx-swap="innerHTML"
+        hx-on:click={useCallback(onClick)}
       >
         Adicionar à Sacola
       </label>

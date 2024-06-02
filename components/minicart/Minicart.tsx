@@ -38,24 +38,32 @@ const onLoad = (id: string) => {
   }
 
   // Write cart form quantities to AddToCartButton
-  container.querySelectorAll<HTMLFieldSetElement>("[data-item-id]").forEach(
-    (fieldSet) => {
-      const itemId = fieldSet.getAttribute("data-item-id");
-      const quantity =
-        fieldSet.querySelector<HTMLInputElement>('input[type="number"]')
-          ?.value ?? "0";
+  document.querySelectorAll<HTMLElement>("[data-add-to-cart][data-product-id]")
+    .forEach((node) => {
+      const productId = node.getAttribute("data-product-id");
+      const input = node.querySelector<HTMLInputElement>(
+        'input[type="number"]',
+      );
+      const checkbox = node.querySelector<HTMLInputElement>(
+        'input[type="checkbox"]',
+      );
 
-      // sync cart quantities
-      document.querySelectorAll<HTMLInputElement>(
-        `[data-add-to-cart][data-product-id="${itemId}"] input[type="number"]`,
-      ).forEach((input) => input.value = quantity);
+      if (!productId || !input || !checkbox) {
+        return;
+      }
 
-      // toggle mode checkbox
-      document.querySelectorAll<HTMLInputElement>(
-        `[data-add-to-cart][data-product-id="${itemId}"] input[type="checkbox"]`,
-      ).forEach((input) => input.checked = Number(quantity) > 0);
-    },
-  );
+      const quantity = container.querySelector<HTMLInputElement>(
+        `[data-item-id="${productId}"] input[type="number"]`,
+      )?.valueAsNumber;
+
+      if (typeof quantity === "number") {
+        input.value = quantity.toString();
+        checkbox.checked = quantity > 0;
+      } else {
+        input.value = "0";
+        checkbox.checked = false;
+      }
+    });
 };
 
 function Cart({

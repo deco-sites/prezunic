@@ -230,29 +230,29 @@ function Header({
       hx-swap="outerHTML"
     >
       {/* Minicart Drawer */}
-      {props.variant === "full" && (
-        <Drawer
-          id={MINICART_DRAWER_ID}
-          class="drawer-end z-50"
-          aside={
-            <Drawer.Aside title="My Bag" drawer={MINICART_DRAWER_ID}>
-              <div
-                id={MINICART_CONTAINER_ID}
-                style={{
-                  minWidth: "calc(min(100vw, 425px))",
-                  maxWidth: "425px",
-                }}
-                class={clx(
-                  "h-full flex flex-col bg-base-100 items-center justify-center overflow-auto",
-                  "[.htmx-request&]:pointer-events-none [.htmx-request&]:opacity-60 [.htmx-request&]:cursor-wait transition-opacity duration-300",
-                )}
-              >
-                {props.minicart && <Minicart cart={props.minicart} />}
-              </div>
-            </Drawer.Aside>
-          }
-        />
-      )}
+      <Drawer
+        id={MINICART_DRAWER_ID}
+        class="drawer-end z-50"
+        aside={
+          <Drawer.Aside title="My Bag" drawer={MINICART_DRAWER_ID}>
+            <div
+              id={MINICART_CONTAINER_ID}
+              style={{
+                minWidth: "calc(min(100vw, 425px))",
+                maxWidth: "425px",
+              }}
+              class={clx(
+                "h-full flex flex-col bg-base-100 items-center justify-center overflow-auto",
+                "[.htmx-request&]:pointer-events-none [.htmx-request&]:opacity-60 [.htmx-request&]:cursor-wait transition-opacity duration-300",
+              )}
+            >
+              {props.variant === "full" && props.minicart && (
+                <Minicart cart={props.minicart} />
+              )}
+            </div>
+          </Drawer.Aside>
+        }
+      />
 
       <div class="bg-base-100 fixed w-full z-40">
         {contentBefore && contentBefore.show &&
