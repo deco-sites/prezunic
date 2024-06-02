@@ -10,7 +10,7 @@
   }
 
   body {
-    @apply bg-neutral-content
+    @apply bg-neutral-content;
   }
 
   mark {
@@ -32,8 +32,21 @@
   }
 
   .drawer-overlay{
-    @apply !bg-transparent
+    @apply !bg-transparent;
   }
+
+  div::-webkit-scrollbar-track {
+    @apply border-none bg-neutral-content;
+  }
+  
+  div::-webkit-scrollbar {
+    @apply w-1 h-1 bg-white;
+  }
+  
+  div::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+  }
+  
 }
 
 .group:disabled .group-disabled\:animate-progress {

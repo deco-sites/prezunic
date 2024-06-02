@@ -37,7 +37,7 @@
     "info": "#3d4ed1"
   },
   "buttonStyle": {
-    "--border-btn": "1px",
+    "--border-btn": "2px",
     "--rounded-btn": "0.2rem",
     "--animation-btn": "0.25s",
     "--btn-text-case": "normal-case",

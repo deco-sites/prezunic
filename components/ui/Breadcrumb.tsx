@@ -21,7 +21,8 @@ function Breadcrumb({ itemListElement = [] }: Props) {
                 class={clx(
                   "block text-[13px] rounded-full text-base-300",
                   "bg-primary-content py-[2px] px-2",
-                  items.length - 1 === index && "text-primary font-semibold",
+                  items.length - 1 === index &&
+                    "text-primary font-semibold capitalize",
                 )}
                 href={relative(item.item)}
               >
