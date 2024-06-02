@@ -85,7 +85,6 @@ export default function Searchbar(
         class="flex pl-4 pr-2 justify-between join rounded-none sm:rounded-full border-y-[1px] sm:border-[1px] border-base-200 w-full sm:w-[480px] h-[42px] relative"
       >
         <input
-          autoFocus
           tabIndex={0}
           class="w-full text-xs border-none outline-none"
           name={NAME}
