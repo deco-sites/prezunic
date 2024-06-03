@@ -29,39 +29,71 @@ export interface Minicart {
 }
 
 const onLoad = (id: string) => {
+  globalThis.window.STOREFRONT ||= { SEEN: new WeakMap(), CART: null };
+  const storefront = globalThis.window.STOREFRONT;
   const container = document.getElementById(id) as HTMLDivElement | null;
 
-  if (!container) {
-    return;
+  // Write cart form quantities to AddToCartButton
+  function writeQuantitiesToAddToCart() {
+    document.querySelectorAll<HTMLElement>(
+      "[data-add-to-cart][data-product-id]",
+    )
+      .forEach((node) => {
+        const productId = node.getAttribute("data-product-id");
+        const input = node.querySelector<HTMLInputElement>(
+          'input[type="number"]',
+        );
+        const checkbox = node.querySelector<HTMLInputElement>(
+          'input[type="checkbox"]',
+        );
+
+        if (!productId || !input || !checkbox) {
+          return;
+        }
+
+        const quantity = container?.querySelector<HTMLInputElement>(
+          `[data-item-id="${productId}"] input[type="number"]`,
+        )?.valueAsNumber;
+
+        if (typeof quantity === "number") {
+          input.value = quantity.toString();
+          checkbox.checked = quantity > 0;
+        } else {
+          input.value = "0";
+          checkbox.checked = false;
+        }
+      });
   }
 
-  // Write cart form quantities to AddToCartButton
-  document.querySelectorAll<HTMLElement>("[data-add-to-cart][data-product-id]")
-    .forEach((node) => {
-      const productId = node.getAttribute("data-product-id");
-      const input = node.querySelector<HTMLInputElement>(
-        'input[type="number"]',
-      );
-      const checkbox = node.querySelector<HTMLInputElement>(
-        'input[type="checkbox"]',
-      );
+  function exposeCartToWindow() {
+    const input = container?.querySelector<HTMLInputElement>(
+      'input[name="original"]',
+    );
 
-      if (!productId || !input || !checkbox) {
-        return;
-      }
+    if (!input) {
+      return;
+    }
 
-      const quantity = container.querySelector<HTMLInputElement>(
-        `[data-item-id="${productId}"] input[type="number"]`,
-      )?.valueAsNumber;
+    storefront.CART = JSON.parse(decodeURIComponent(input.value));
+  }
 
-      if (typeof quantity === "number") {
-        input.value = quantity.toString();
-        checkbox.checked = quantity > 0;
-      } else {
-        input.value = "0";
-        checkbox.checked = false;
-      }
-    });
+  function adjustQuantities() {
+    // cart items
+    const items = container?.querySelectorAll("[data-item-id]");
+
+    // Set minicart items count on header
+    const count = items?.length ?? 0;
+    const counter = document.querySelector("[data-minicart-items-count]");
+    counter?.classList.remove("after:hidden");
+    counter?.setAttribute(
+      "data-minicart-items-count",
+      count > 9 ? "9+" : count.toString(),
+    );
+  }
+
+  writeQuantitiesToAddToCart();
+  exposeCartToWindow();
+  adjustQuantities();
 };
 
 function Cart({
