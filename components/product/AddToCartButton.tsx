@@ -154,7 +154,8 @@ function AddToCartButton(
         for={id}
         class={clx(
           "btn no-animation",
-          "peer-checked:hidden w-full",
+          "peer-checked:hidden w-full !h-8 !min-h-8",
+          "bg-primary text-white border-primary hover:bg-secondary-content hover:border-secondary-content",
           _class,
         )}
         hx-disabled-elt="this"
@@ -165,7 +166,7 @@ function AddToCartButton(
         hx-swap="innerHTML"
         hx-on:click={useCallback(onClick)}
       >
-        Adicionar à Sacola
+        COMPRAR
       </label>
 
       <div class="hidden peer-checked:inline flex-grow">

@@ -20,16 +20,16 @@ function Alert({ alerts = [] }: Props) {
       <div class="flex items-center gap-12 container">
         <div class="flex items-center justify-between gap-1">
           <Icon id="pin" size={20} strokeWidth={16} />
-          <span class="text-[13px] text-secondary-content flex justify-center items-center h-[38px]">
+          <span class="text-[13px] text-base-300 flex justify-center items-center h-[38px]">
             22471-003
           </span>
         </div>
-        <span class="hidden sm:block w-[1px] h-[25px] bg-secondary-content ">
+        <span class="hidden sm:block w-[1px] h-[25px] bg-base-300">
         </span>
         {alerts.map((alert) => (
           <a
             href={alert.link}
-            class="hidden sm:flex text-[13px] text-secondary-content justify-center items-center h-[38px]"
+            class="hidden sm:flex text-[13px] text-base-300 justify-center items-center h-[38px]"
           >
             {alert.label}
           </a>

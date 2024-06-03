@@ -54,44 +54,42 @@ function CartItem({ item, index, locale, currency }: Props) {
     <fieldset
       data-item-id={itemId}
       data-item={JSON.stringify(item)}
-      class="grid grid-rows-1 gap-2"
+      class="grid grid-rows-1 gap-2 px-2 py-4 border-b border-base-200"
       style={{ gridTemplateColumns: "auto 1fr" }}
     >
       <Image
         alt={name}
-        src={image}
-        style={{ aspectRatio: "108 / 150" }}
-        width={108}
-        height={150}
+        src={image.replace("55-55", "100-100")}
+        style={{ aspectRatio: "50 / 50" }}
+        width={50}
+        height={50}
         class="h-full object-contain"
       />
 
       {/* Info */}
       <div class="flex flex-col gap-2">
         {/* Name and Remove button */}
-        <div class="flex justify-between items-center">
-          <legend>{name}</legend>
+        <div class="flex justify-between items-center gap-4">
+          <legend class="text-xs">{name}</legend>
           <button
             disabled={isGift}
-            class={clx(isGift ? "hidden" : "btn btn-ghost btn-square")}
+            class={clx(isGift ? "hidden" : "btn btn-ghost")}
             hx-on:click={useCallback(onRemove)}
           >
-            <Icon id="Trash" size={24} />
+            <Icon id="XMark" size={24} strokeWidth={2} />
           </button>
         </div>
 
-        {/* Price Block */}
-        <div class="flex items-center gap-2">
-          <span class="line-through text-sm">
-            {formatPrice(listPrice, currency, locale)}
-          </span>
-          <span class="text-sm text-secondary">
-            {isGift ? "Grátis" : formatPrice(price, currency, locale)}
-          </span>
-        </div>
-
         {/* Quantity Selector */}
-        <div class={clx(isGift && "hidden")}>
+        <div class={clx(isGift && "hidden", "flex gap-2 justify-between")}>
+          <div class="flex flex-col gap-1 w-4/5">
+            <span class="line-through text-xs">
+              {formatPrice(listPrice, currency, locale)}
+            </span>
+            <span class="text-sm text-primary font-bold">
+              {isGift ? "Grátis" : formatPrice(price, currency, locale)}
+            </span>
+          </div>
           <QuantitySelector
             min={0}
             max={QUANTITY_MAX_VALUE}

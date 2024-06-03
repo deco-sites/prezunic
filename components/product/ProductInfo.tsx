@@ -54,8 +54,6 @@ function ProductInfo({ page }: Props) {
     },
   });
 
-  console.log(product);
-
   return (
     <div {...viewItemEvent} class="flex flex-col px-4" id={id}>
       {/* Code and name */}

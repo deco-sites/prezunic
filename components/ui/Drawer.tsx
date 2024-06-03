@@ -55,6 +55,7 @@ function Drawer({
 
         <aside
           data-aside
+          id={id}
           class={clx(
             "drawer-side h-full z-40 overflow-hidden",
             "[[data-aside]&_section]:contents", // lazy-loading via useSection
@@ -79,16 +80,16 @@ function Aside(
   return (
     <div
       data-aside
-      class="bg-base-100 grid grid-rows-[auto_1fr] h-full divide-y"
+      class="bg-secondary grid grid-rows-[auto_1fr] h-full divide-y"
       style={{ maxWidth: "100vw" }}
     >
-      <div class="flex justify-between items-center">
-        <h1 class="px-4 py-3">
-          <span class="font-medium text-2xl">{title}</span>
-        </h1>
+      <div class="flex justify-start items-center text-base-300">
         <label for={drawer} aria-label="X" class="btn btn-ghost">
           <Icon id="XMark" size={24} strokeWidth={2} />
         </label>
+        <h1 class="py-3">
+          <span class="font-bold text-lg">{title}</span>
+        </h1>
       </div>
       {children}
     </div>

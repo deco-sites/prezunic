@@ -58,6 +58,7 @@
     "base-300": "#333333",
     "neutral-content": "#f4f4f4",
     "base-content": "#666666",
-    "primary-content": "#f3f3f3"
+    "primary-content": "#f3f3f3",
+    "secondary-content": "#6eae46"
   }
 }

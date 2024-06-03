@@ -113,7 +113,7 @@ function Desktop(
           </div>
         </div>
       </div>
-      <div class="container flex justify-between items-center py-2">
+      <div class="container flex justify-between items-center p-2">
         {highlightItems?.map((item) => (
           <a href={item.href} class="text-sm">
             {item.label}
@@ -234,7 +234,7 @@ function Header({
         id={MINICART_DRAWER_ID}
         class="drawer-end z-50"
         aside={
-          <Drawer.Aside title="My Bag" drawer={MINICART_DRAWER_ID}>
+          <Drawer.Aside title="Meu carrinho" drawer={MINICART_DRAWER_ID}>
             <div
               id={MINICART_CONTAINER_ID}
               style={{

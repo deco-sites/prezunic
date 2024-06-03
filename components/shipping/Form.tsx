@@ -21,7 +21,7 @@ export default function Form({ items }: Props) {
         </div>
 
         <form
-          class="join w-full"
+          class="join w-full sm:w-auto"
           hx-target={`#${slot}`}
           hx-swap="innerHTML"
           hx-sync="this:replace"

@@ -31,8 +31,12 @@
     height: 100vh;
   }
 
-  .drawer-overlay{
-    @apply !bg-transparent;
+  .drawer-overlay {
+    @apply blur-md;
+  }
+
+  #sidemenu-drawer .drawer-overlay{
+    @apply !bg-transparent blur-none;
   }
 
   div::-webkit-scrollbar-track {

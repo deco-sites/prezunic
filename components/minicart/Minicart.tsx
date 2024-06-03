@@ -122,16 +122,6 @@ function Cart({
         )
         : (
           <>
-            {/* Free Shipping Bar */}
-            <div class="px-2 py-4 w-full">
-              <FreeShippingProgressBar
-                total={total}
-                locale={locale}
-                currency={currency}
-                target={freeShippingTarget}
-              />
-            </div>
-
             {/* Cart Items */}
             <form
               id={MINICART_FORM_ID}
@@ -146,7 +136,7 @@ function Cart({
             >
               <ul
                 role="list"
-                class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
+                class="px-6 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
               >
                 {items.map((item, index) => (
                   <li>
@@ -169,36 +159,18 @@ function Cart({
             </form>
 
             {/* Cart Footer */}
-            <footer class="w-full">
-              {/* Subtotal */}
-              <div class="border-t border-base-200 py-2 flex flex-col">
-                {discounts > 0 && (
-                  <div class="flex justify-between items-center px-4">
-                    <span class="text-sm">Descontos</span>
-                    <span class="text-sm">
-                      {formatPrice(discounts, currency, locale)}
-                    </span>
-                  </div>
-                )}
-                <div class="w-full flex justify-between px-4 text-sm">
-                  <span>Subtotal</span>
-                  <output form={MINICART_FORM_ID}>
-                    {formatPrice(subtotal, currency, locale)}
-                  </output>
-                </div>
-                {enableCoupon && <Coupon coupon={coupon} />}
-              </div>
-
+            <footer class="w-full bg-neutral-content">
               {/* Total */}
-              <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
-                <div class="flex justify-between items-center w-full">
+              <div class="pt-4 flex flex-col justify-start items-end gap-2 mx-4">
+                <div class="flex justify-between items-center w-full text-primary font-bold ">
                   <span>Total</span>
-                  <output form={MINICART_FORM_ID} class="font-medium text-xl">
+                  <output form={MINICART_FORM_ID} class="text-xl">
                     {formatPrice(total, currency, locale)}
                   </output>
                 </div>
-                <span class="text-sm text-base-300">
-                  Taxas e fretes serão calculados no checkout
+                <span class="text-xs text-base-300">
+                  ∗ Os custos de transporte serão calculados ao selecionar o
+                  método de envio.
                 </span>
               </div>
 
@@ -209,7 +181,7 @@ function Cart({
                   class="btn btn-primary w-full no-animation"
                   href={checkoutHref}
                 >
-                  <span class="[.htmx-request_&]:hidden">Begin Checkout</span>
+                  <span class="[.htmx-request_&]:hidden">Finalizar pedido</span>
                   <span class="[.htmx-request_&]:inline hidden loading loading-spinner" />
                 </a>
               </div>

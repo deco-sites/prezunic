@@ -18,10 +18,10 @@ function QuantitySelector(
   { id = useId(), ...props }: JSX.IntrinsicElements["input"],
 ) {
   return (
-    <div class="join border rounded-none w-min">
+    <div class="join border rounded-none w-full h-8">
       <button
         type="button"
-        class="btn btn-square btn-ghost join-item"
+        class="btn btn-square btn-ghost min-h-[30px] h-[30px]"
         hx-on:click={useCallback(script, -1)}
       >
         -
@@ -38,7 +38,7 @@ function QuantitySelector(
           id={id}
           class={clx(
             "input text-center [appearance:textfield] flex-grow",
-            "invalid:input-error",
+            "invalid:input-error h-[30px] text-xs font-bold",
           )}
           inputMode="numeric"
           type="number"
@@ -47,7 +47,7 @@ function QuantitySelector(
       </div>
       <button
         type="button"
-        class="btn btn-square btn-ghost join-item"
+        class="btn btn-square btn-ghost min-h-[30px] h-[30px]"
         hx-on:click={useCallback(script, 1)}
       >
         +
