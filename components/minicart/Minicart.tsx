@@ -1,4 +1,5 @@
 import { AnalyticsEvent } from "apps/commerce/types.ts";
+import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 import {
   MINICART_CONTAINER_ID,
   MINICART_DRAWER_ID,
@@ -7,10 +8,7 @@ import {
 import { useSubmitCart } from "../../sdk/cart.ts";
 import { formatPrice } from "../../sdk/format.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import Coupon from "./Coupon.tsx";
-import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 import CartItem, { Item } from "./Item.tsx";
-import { scriptAsDataURI } from "apps/utils/dataURI.ts";
 
 export interface Minicart {
   original: Record<string, unknown>;
@@ -72,15 +70,11 @@ function Cart({
     data: {
       items,
       total,
-      subtotal,
       coupon,
-      discounts,
     },
     options: {
       locale,
       currency,
-      enableCoupon = true,
-      freeShippingTarget,
       checkoutHref,
     },
   },

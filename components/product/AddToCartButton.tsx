@@ -31,20 +31,13 @@ const onChange = (productId: string, cartFormId: string) => {
     return;
   }
 
-  document.querySelectorAll<HTMLInputElement>(
-    `[data-add-to-cart][data-product-id="${productId}"]`,
-  ).forEach((container) => {
-    const checkbox = container.querySelector<HTMLInputElement>(
-      `input[type="checkbox"]`,
-    )!;
-    const quantity = container.querySelector<HTMLInputElement>(
-      `input[type="number"]`,
-    )!;
+  const input = event!.currentTarget as HTMLInputElement;
+  const checkbox = input.closest("[data-add-to-cart]")!
+    .querySelector<HTMLInputElement>('input[type="number"]')!;
 
-    cartInput.value = quantity.value;
-    cartInput.dispatchEvent(new Event("change", { bubbles: true }));
-    checkbox.checked = Number(quantity.value) > 0;
-  });
+  cartInput.value = input.value;
+  cartInput.dispatchEvent(new Event("change", { bubbles: true }));
+  checkbox.checked = Number(input.value) > 0;
 };
 
 // Copy cart form values into AddToCartButton

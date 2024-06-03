@@ -6,9 +6,7 @@ import { formatPrice } from "../../sdk/format.ts";
 import { relative } from "../../sdk/url.ts";
 import { useOffer } from "../../sdk/useOffer.ts";
 import { useSendEvent } from "../../sdk/useSendEvent.ts";
-import { useVariantPossibilities } from "../../sdk/useVariantPossiblities.ts";
 import AddToCartButton from "./AddToCartButton.tsx";
-import { Ring } from "./ProductVariantSelector.tsx";
 
 interface Props {
   product: Product;
@@ -37,12 +35,9 @@ function ProductCard({
     offers,
     isVariantOf,
   } = product;
-  const hasVariant = isVariantOf?.hasVariant ?? [];
   const title = isVariantOf?.name ?? product.name;
-  const [front, back] = images ?? [];
+  const [front] = images ?? [];
   const { listPrice, price, seller = "1" } = useOffer(offers);
-  const possibilities = useVariantPossibilities(hasVariant, product);
-  const variants = Object.entries(Object.values(possibilities)[0] ?? {});
   const relativeUrl = relative(url);
   const aspectRatio = `${WIDTH} / ${HEIGHT}`;
 
