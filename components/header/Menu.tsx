@@ -111,8 +111,8 @@ function Menu({ navItems: _navItems }: Props) {
   }
 
   return (
-    <div class="flex flex-col h-full overflow-y-auto w-full opacity-50">
-      <ul class="px-4 flex-grow flex flex-col divide-y divide-base-200 overflow-y-auto h-full w-[85vw]">
+    <div class="flex flex-col h-full overflow-y-auto w-full">
+      <ul class="bg-white px-4 flex-grow flex flex-col divide-y divide-base-200 overflow-y-auto h-full w-[85vw]">
         {navItems.map((item) => (
           <li>
             <MenuItem item={item} />

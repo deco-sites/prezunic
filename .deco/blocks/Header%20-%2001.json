@@ -128,17 +128,18 @@
     },
     {
       "label": "Perfumaria 🧴 ",
-      "href": "https://www.prezunic.com.br/higiene-e-beleza"
+      "href": "/higiene-e-beleza"
     },
     {
       "label": "Pets 🐶 ",
-      "href": "https://www.prezunic.com.br/pet-shop"
+      "href": "/pet-shop"
     }
   ],
   "contentBefore": {
     "show": true,
     "text": "<p><span style=\"color: #ffffff\">Conheça o </span><strong><span style=\"color: #ffffff\">Prizunic Prime</span></strong><span style=\"color: #ffffff\"> e ganhe frete grátis</span></p>",
     "image": "https://ozksgdmyrqcxcwhnbepg.supabase.co/storage/v1/object/public/assets/10576/f01d98c9-4e8f-4e37-9e2a-8108a87d9926",
-    "bg": "#3f3f3f"
+    "bg": "#3f3f3f",
+    "link": "/"
   }
 }
